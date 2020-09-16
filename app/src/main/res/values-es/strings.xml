@@ -2,4 +2,5 @@
 <resources>
     <string name="copy_log_in">Ingresar</string>
     <string name="copy_input_access_token">"Ingresa tu personal access token "</string>
+    <string name="error_access_token_validation">Please check your access token on Bitrise.io</string>
 </resources>
