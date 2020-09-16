@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Bitrise App</string>
+    <string name="copy_log_in">Log In</string>
+    <string name="copy_input_access_token">"Input your personal access token"</string>
+</resources>

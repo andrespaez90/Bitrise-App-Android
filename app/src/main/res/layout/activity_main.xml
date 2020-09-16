@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/spacing_huge"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:id="@+id/imageView_logo"
+            android:layout_width="@dimen/spacing_empty"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_logo"
+            app:layout_constraintBottom_toTopOf="@id/text_input_layout"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_huge"
+            android:layout_marginTop="@dimen/spacing_standard"
+            android:layout_marginRight="@dimen/spacing_huge"
+            android:hint="@string/copy_input_access_token"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_logo"
+            app:layout_constraintVertical_chainStyle="packed">
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/font_body" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            style="@style/Button.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_huge"
+            android:layout_marginTop="@dimen/spacing_xxlarge"
+            android:layout_marginRight="@dimen/spacing_huge"
+            android:text="@string/copy_log_in"
+            android:textColor="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/text_input_layout" />
+
+        <TextView
+            android:id="@+id/textView_version"
+            style="@style/TextSmall.Gray"
+            android:layout_width="@dimen/spacing_empty"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:text="Verison 1.0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

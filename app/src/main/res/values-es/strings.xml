@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="copy_log_in">Ingresar</string>
+    <string name="copy_input_access_token">"Ingresa tu personal access token "</string>
+</resources>
