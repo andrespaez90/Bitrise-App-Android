@@ -1,5 +1,6 @@
 package com.andrespaez.bitrise.di
 
+import com.andrespaez.bitrise.network.services.AppsServices
 import com.andrespaez.bitrise.network.services.UserServices
 import dagger.Module
 import dagger.Provides
@@ -16,4 +17,9 @@ class ServicesModules {
     @Singleton
     fun userServices(retrofit: Retrofit): UserServices =
         retrofit.create(UserServices::class.java)
+
+    @Provides
+    @Singleton
+    fun appServices(retrofit: Retrofit): AppsServices =
+        retrofit.create(AppsServices::class.java)
 }

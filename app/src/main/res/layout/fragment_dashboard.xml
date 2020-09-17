@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@color/background"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragments.DashboardFragment">
+
+        <com.andrespaez.bitrise.ui.views.VectorTextView
+            android:id="@+id/button_add_app"
+            style="@style/Button.Primary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_xlarge"
+            android:drawablePadding="@dimen/spacing_standard"
+            android:text="Add New App"
+            app:drawableLeft="@drawable/ic_add_circle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.andrespaez.bitrise.ui.views.VectorTextView
+            android:id="@+id/button_apps_title"
+            style="@style/TextBig.Black.Bold"
+            android:layout_width="@dimen/spacing_empty"
+            android:layout_height="@dimen/spacing_empty"
+            android:layout_marginStart="@dimen/spacing_xlarge"
+            android:layout_marginLeft="@dimen/spacing_xlarge"
+            android:drawablePadding="@dimen/spacing_standard"
+            android:gravity="center_vertical"
+            android:text="APPS"
+            app:drawableLeft="@drawable/ic_lists_apps"
+            app:layout_constraintBottom_toBottomOf="@id/button_add_app"
+            app:layout_constraintEnd_toStartOf="@id/button_add_app"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/button_add_app" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/editText_search"
+            android:layout_width="@dimen/spacing_empty"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xlarge"
+            android:layout_marginBottom="@dimen/spacing_xlarge"
+            android:padding="@dimen/spacing_standard"
+            android:background="@drawable/selector_border_edit_text"
+            android:drawableEnd="@drawable/ic_search"
+            android:drawableRight="@drawable/ic_search"
+            app:layout_constraintEnd_toEndOf="@id/button_add_app"
+            app:layout_constraintStart_toStartOf="@id/button_apps_title"
+            app:layout_constraintTop_toBottomOf="@id/button_add_app" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/layout_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_empty"
+            android:layout_marginTop="@dimen/spacing_xlarge"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_search">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

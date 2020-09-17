@@ -3,4 +3,7 @@
     <string name="copy_log_in">Ingresar</string>
     <string name="copy_input_access_token">"Ingresa tu personal access token "</string>
     <string name="error_access_token_validation">Please check your access token on Bitrise.io</string>
+
+    <string name="copy_dashboard">Dashboard</string>
+    <string name="copy_profile">Profile</string>
 </resources>

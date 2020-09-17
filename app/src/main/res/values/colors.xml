@@ -9,4 +9,6 @@
     <color name="font_black">#354360</color>
 
     <color name="white_transparent">#AAFFFFFF</color>
+
+    <color name="background">#f6f9fc</color>
 </resources>

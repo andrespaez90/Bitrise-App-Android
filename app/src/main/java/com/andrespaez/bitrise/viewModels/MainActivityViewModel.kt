@@ -9,7 +9,7 @@ import com.andrespaez.bitrise.managers.preferences.PrefsManager
 import com.andrespaez.bitrise.network.api.UserApi
 import com.andrespaez.bitrise.network.models.Profile
 import com.andrespaez.bitrise.network.utils.ErrorUtil
-import com.andrespaez.bitrise.ui.activities.DashboardActivity
+import com.andrespaez.bitrise.ui.activities.HomeActivity
 import com.andrespaez.bitrise.ui.factories.SnackBarFactory
 import com.andrespaez.bitrise.viewModels.models.FinishActivityModel
 import com.andrespaez.bitrise.viewModels.models.StartActivityModel
@@ -45,7 +45,7 @@ class MainActivityViewModel @ViewModelInject constructor(
     }
 
     private fun startDashboard(profile: Profile) {
-        startActivity.postValue(StartActivityModel(DashboardActivity::class.java))
+        startActivity.postValue(StartActivityModel(HomeActivity::class.java))
         closeView.postValue(FinishActivityModel(Activity.RESULT_OK))
     }
 

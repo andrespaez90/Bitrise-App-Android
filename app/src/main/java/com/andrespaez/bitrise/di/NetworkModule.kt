@@ -1,14 +1,17 @@
 package com.andrespaez.bitrise.di
 
+import android.content.Context
 import com.andrespaez.bitrise.BuildConfig
 import com.andrespaez.bitrise.data.AuthorizationPreference
 import com.andrespaez.bitrise.managers.preferences.PrefsManager
+import com.andrespaez.bitrise.network.interceptor.TokenAuthenticator
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -26,12 +29,18 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun retrofitServices(prefsManager: PrefsManager, gson: Gson): Retrofit {
+    fun retrofitServices(
+        @ApplicationContext appContext: Context,
+        prefsManager: PrefsManager,
+        gson: Gson
+    ): Retrofit {
         val httpClient = getHttpClientBuilder().apply {
             addInterceptor(addAuthentication(prefsManager))
         }
-        return getRetrofitBuilder(httpClient.build(), "https://api.bitrise.io/", gson)
-            .build()
+        return getRetrofitBuilder(
+            httpClient.authenticator(TokenAuthenticator(appContext, prefsManager)).build(),
+            "https://api.bitrise.io/", gson
+        ).build()
     }
 
     private fun getRetrofitBuilder(
