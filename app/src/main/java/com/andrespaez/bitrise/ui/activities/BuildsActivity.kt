@@ -38,8 +38,8 @@ class BuildsActivity : BaseActivity() {
         binding.recyclerViewList.run {
             adapter = GenericAdapter(AppListFactory().apply {
                 setListener { data ->
-                    when(data){
-                        is BuildEvents.AbortBuild ->viewModel.abortBuild(data.data)
+                    when (data) {
+                        is BuildEvents.AbortBuild -> viewModel.abortBuild(data.data)
                     }
                 }
             })
@@ -61,7 +61,7 @@ class BuildsActivity : BaseActivity() {
         )
     }
 
-    private fun initListeners(){
+    private fun initListeners() {
         binding.layoutRefresh.setOnRefreshListener { viewModel.updateBuilds() }
     }
 

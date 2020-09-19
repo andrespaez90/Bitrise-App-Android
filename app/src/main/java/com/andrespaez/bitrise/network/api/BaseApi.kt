@@ -8,7 +8,10 @@ import io.reactivex.schedulers.Schedulers
 
 abstract class BaseApi {
 
-    protected open fun subscribe(completable: Completable, scheduler: Scheduler? = null): Completable {
+    protected open fun subscribe(
+        completable: Completable,
+        scheduler: Scheduler? = null
+    ): Completable {
         return scheduler?.let { completable.subscribeOn(scheduler) }
             ?: kotlin.run {
                 if (Looper.myLooper() == Looper.getMainLooper()) completable.subscribeOn(Schedulers.io())

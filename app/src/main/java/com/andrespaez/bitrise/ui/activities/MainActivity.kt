@@ -2,7 +2,6 @@ package com.andrespaez.bitrise.ui.activities
 
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.andrespaez.bitrise.BuildConfig
 import com.andrespaez.bitrise.R
@@ -32,7 +31,7 @@ class MainActivity : BaseActivity() {
         binding.textViewVersion.text = BuildConfig.VERSION_NAME
     }
 
-    private fun initViewModel(){
+    private fun initViewModel() {
         binding.viewModel = viewModel
         subscribeViewModel(viewModel, binding.root)
     }

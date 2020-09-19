@@ -61,7 +61,12 @@ open class BaseActivity : AppCompatActivity() {
 
             if (supportFragmentManager.backStackEntryCount >= 0) {
 
-                ft.setCustomAnimations(fragment.enter, fragment.exit, fragment.popEnter, fragment.popExit)
+                ft.setCustomAnimations(
+                    fragment.enter,
+                    fragment.exit,
+                    fragment.popEnter,
+                    fragment.popExit
+                )
             }
 
             ft.replace(fragment.container, fragment, fragment.name)
@@ -96,7 +101,10 @@ open class BaseActivity : AppCompatActivity() {
             loadingView = Loading(this)
             this.addContentView(
                 loadingView,
-                ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+                ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT
+                )
             )
         }
     }
@@ -165,7 +173,12 @@ open class BaseActivity : AppCompatActivity() {
         SnackBarFactory.getSnackBar(type, view, message, Snackbar.LENGTH_LONG).show()
     }
 
-    fun showMessage(@SnackBarFactory.SnackBarType type: String, view: View, message: String, duration: Int) {
+    fun showMessage(
+        @SnackBarFactory.SnackBarType type: String,
+        view: View,
+        message: String,
+        duration: Int
+    ) {
         SnackBarFactory.getSnackBar(type, view, message, duration).show()
     }
 

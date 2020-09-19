@@ -9,9 +9,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.andrespaez.bitrise.network.utils.ErrorUtil
 import com.andrespaez.bitrise.ui.factories.SnackBarFactory
-import com.andrespaez.bitrise.viewModels.models.*
 import com.andrespaez.bitrise.viewModels.lifecylce.ConsumerLiveData
 import com.andrespaez.bitrise.viewModels.lifecylce.PublishLiveData
+import com.andrespaez.bitrise.viewModels.models.*
 import com.google.android.material.snackbar.Snackbar
 import io.reactivex.Completable
 import io.reactivex.Observable
