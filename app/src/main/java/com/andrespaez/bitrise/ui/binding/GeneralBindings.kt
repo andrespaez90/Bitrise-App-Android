@@ -4,7 +4,9 @@ import android.app.Activity
 import android.content.Context
 import android.content.ContextWrapper
 import android.os.Build
+import android.view.View
 import android.widget.ImageView
+import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import androidx.fragment.app.FragmentActivity
 import com.andrespaez.bitrise.R
@@ -35,5 +37,11 @@ object GeneralBindings {
         context is ContextWrapper ->
             Glide.with(context.baseContext)
         else -> null
+    }
+
+    @JvmStatic
+    @BindingAdapter("isVisible")
+    fun View.setIsVisible(isVisible: Boolean) {
+        this.isVisible = isVisible
     }
 }

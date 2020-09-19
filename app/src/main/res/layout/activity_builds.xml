@@ -1,9 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.activities.BuildsActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activities.BuildsActivity"
+        android:background="@color/background">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <Button
+            android:id="@+id/button_start_build"
+            style="@style/Button.Primary"
+            android:layout_width="@dimen/spacing_empty"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xlarge"
+            android:layout_marginEnd="@dimen/spacing_xlarge"
+            android:layout_marginRight="@dimen/spacing_xlarge"
+            android:layout_marginBottom="@dimen/spacing_xlarge"
+            android:paddingLeft="@dimen/spacing_xxlarge"
+            android:paddingRight="@dimen/spacing_xxlarge"
+            android:text="Start a Build"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideline_center"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.andrespaez.bitrise.ui.views.VectorTextView
+            android:id="@+id/button_apps_title"
+            style="@style/TextBig.Black.Bold"
+            android:layout_width="@dimen/spacing_empty"
+            android:layout_height="@dimen/spacing_empty"
+            android:layout_marginStart="@dimen/spacing_xlarge"
+            android:layout_marginLeft="@dimen/spacing_xlarge"
+            android:drawablePadding="@dimen/spacing_standard"
+            android:gravity="center_vertical"
+            android:text="BUILDS"
+            app:drawableLeft="@drawable/ic_lists_apps"
+            app:layout_constraintBottom_toBottomOf="@id/button_start_build"
+            app:layout_constraintEnd_toStartOf="@id/button_start_build"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/button_start_build" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/layout_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_empty"
+            android:layout_marginTop="@dimen/spacing_xlarge"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_start_build">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

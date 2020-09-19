@@ -11,4 +11,10 @@
     <color name="white_transparent">#AAFFFFFF</color>
 
     <color name="background">#f6f9fc</color>
+
+    <color name="green_success">#0fc389</color>
+    <color name="yellow_aborted">#ffc500</color>
+    <color name="red_abort">#ff2158</color>
+    <color name="blue_on_hold">#054ab0</color>
+
 </resources>

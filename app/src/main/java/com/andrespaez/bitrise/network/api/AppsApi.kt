@@ -16,4 +16,17 @@ class AppsApi @Inject constructor(private val services: AppsServices) : BaseApi(
             scheduler
         )
 
+    @CheckReturnValue
+    fun getAppBuilds(appSlug: String, scheduler: Scheduler? = null) =
+        subscribe(
+            services.getBuilds(appSlug).flatMap { Single.just(it.data) },
+            scheduler
+        )
+
+    @CheckReturnValue
+    fun abortBuild(appSlug: String, buildSlug: String, scheduler: Scheduler? = null) =
+        subscribe(
+            services.abortBuild(appSlug, buildSlug),
+            scheduler
+        )
 }

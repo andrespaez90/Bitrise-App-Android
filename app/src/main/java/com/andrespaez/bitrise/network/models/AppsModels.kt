@@ -19,7 +19,7 @@ data class AppModel(
     @SerializedName("repo_slug") val repoSlug: String,
     @SerializedName("is_disabled") val isDisabled: Boolean,
     @SerializedName("status") val status: String,
-    @SerializedName("isPublic") val isPublic: String,
+    @SerializedName("is_public") val isPublic: String,
     @SerializedName("avatar_url") val avatarUrl: String?,
     @SerializedName("owner") val owner: OwnerApp
 ) : Parcelable
@@ -30,3 +30,6 @@ data class OwnerApp(
     @SerializedName("name") val name: String,
     @SerializedName("slug") val slug: String,
 ) : Parcelable
+
+
+

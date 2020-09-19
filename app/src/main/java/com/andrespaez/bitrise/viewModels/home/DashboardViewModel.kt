@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.andrespaez.bitrise.network.api.AppsApi
 import com.andrespaez.bitrise.network.models.AppModel
+import com.andrespaez.bitrise.ui.activities.ACTIVITY_PARAM_APP_MODEL
 import com.andrespaez.bitrise.ui.activities.BuildsActivity
 import com.andrespaez.bitrise.viewModels.AndroidViewModel
 import com.andrespaez.bitrise.viewModels.models.StartActivityModel
@@ -64,7 +65,7 @@ class DashboardViewModel @ViewModelInject constructor(
 
     fun openBuildsApp(appModel: AppModel) {
         startActivity.postValue(StartActivityModel(BuildsActivity::class.java).apply {
-            bundle = Bundle().apply { putParcelable("key_app", appModel) }
+            bundle = Bundle().apply { putParcelable(ACTIVITY_PARAM_APP_MODEL, appModel) }
         })
     }
 

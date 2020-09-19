@@ -7,4 +7,11 @@
 
     <string name="copy_dashboard">Dashboard</string>
     <string name="copy_profile">Profile</string>
+    <string name="copy_abort">Abort</string>
+
+    <string name="copy_state_running">Running</string>
+    <string name="copy_state_success">Success</string>
+    <string name="copy_state_aborted">Aborted</string>
+    <string name="copy_state_on_hold">On hold</string>
+    <string name="copy_state_failed">Failed</string>
 </resources>

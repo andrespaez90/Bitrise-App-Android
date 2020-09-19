@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.andrespaez.bitrise.network.models.BuildsModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_standard"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_marginRight="@dimen/spacing_standard"
+            android:layout_marginBottom="@dimen/spacing_small"
+            android:background="@android:color/white"
+            app:cardCornerRadius="@dimen/radius_medium">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView_build_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/spacing_standard"
+                    android:paddingTop="@dimen/spacing_xlarge"
+                    android:paddingRight="@dimen/spacing_standard"
+                    android:paddingBottom="@dimen/spacing_xlarge"
+                    app:build_state_icon="@{model}"
+                    app:layout_constraintBottom_toBottomOf="@id/layout_build_description"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    tools:background="@color/green_success"
+                    tools:src="@drawable/ic_check_circle" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_build_description"
+                    android:layout_width="@dimen/spacing_empty"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/imageView_build_state"
+                    app:layout_constraintTop_toTopOf="@id/imageView_build_state"
+                    tools:text="Text">
+
+                    <TextView
+                        android:id="@+id/button_abort"
+                        style="@style/Button.Cancel.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/spacing_empty"
+                        android:layout_marginTop="@dimen/spacing_standard"
+                        android:layout_marginEnd="@dimen/spacing_standard"
+                        android:layout_marginRight="@dimen/spacing_standard"
+                        android:text="@string/copy_abort"
+                        android:visibility="invisible"
+                        app:isVisible="@{model.status == 0}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:visibility="visible"/>
+
+                    <TextView
+                        android:id="@+id/textView_state"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/spacing_standard"
+                        app:builds_state_text="@{model}"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Success" />
+
+                    <TextView
+                        android:id="@+id/textView_workflow_name"
+                        style="@style/TextSmall.Gray"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/spacing_standard"
+                        android:layout_marginStart="@dimen/spacing_standard"
+                        android:layout_marginLeft="@dimen/spacing_standard"
+                        android:background="@drawable/edit_text_gray_border"
+                        android:paddingLeft="@dimen/spacing_standard"
+                        android:paddingTop="@dimen/spacing_micro"
+                        android:paddingRight="@dimen/spacing_standard"
+                        android:paddingBottom="@dimen/spacing_micro"
+                        android:text="@{model.triggeredWorkflow}"
+                        app:layout_constraintEnd_toStartOf="@id/button_abort"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintStart_toEndOf="@id/textView_state"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Success" />
+
+                    <com.andrespaez.bitrise.ui.views.VectorTextView
+                        style="@style/TextNormal.Gray"
+                        android:layout_width="@dimen/spacing_empty"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/spacing_standard"
+                        android:drawablePadding="@dimen/spacing_standard"
+                        android:ellipsize="marquee"
+                        android:singleLine="true"
+                        android:text="@{model.commitMessage}"
+                        app:drawableLeft="@drawable/ic_notes"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView_state" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+
+</layout>
+

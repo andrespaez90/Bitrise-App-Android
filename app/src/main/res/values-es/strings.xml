@@ -6,4 +6,12 @@
 
     <string name="copy_dashboard">Dashboard</string>
     <string name="copy_profile">Profile</string>
+
+    <string name="copy_abort">Abortar</string>
+
+    <string name="copy_state_running">En Porgreso</string>
+    <string name="copy_state_success">Exitoso</string>
+    <string name="copy_state_aborted">Abortado</string>
+    <string name="copy_state_on_hold">En Espera</string>
+    <string name="copy_state_failed">Fallido</string>
 </resources>

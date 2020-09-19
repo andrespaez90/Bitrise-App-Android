@@ -119,16 +119,28 @@
     <style name="Button.Primary" parent="Widget.AppCompat.Button.Colored">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:background">@drawable/selector_background_button</item>
-        <item name="android:paddingTop">@dimen/radius_small</item>
+        <item name="android:paddingTop">@dimen/spacing_small</item>
         <item name="android:paddingRight">@dimen/spacing_medium</item>
         <item name="android:paddingLeft">@dimen/spacing_medium</item>
-        <item name="android:paddingBottom">@dimen/radius_small</item>
+        <item name="android:paddingBottom">@dimen/spacing_small</item>
         <item name="android:radius">@dimen/radius_small</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">@dimen/font_body</item>
         <item name="android:stateListAnimator" tools:targetApi="lollipop">@null</item>
         <item name="android:foreground">?attr/selectableItemBackground</item>
     </style>
+
+    <style name="Button.Cancel" parent="Button.Primary">
+        <item name="android:background">@color/red_abort</item>
+    </style>
+
+    <style name="Button.Cancel.Small" parent="Button.Cancel">
+        <item name="android:textSize">@dimen/font_caption2</item>
+        <item name="android:paddingTop">@dimen/spacing_micro</item>
+        <item name="android:paddingBottom">@dimen/spacing_micro</item>
+        <item name="android:minHeight">@dimen/spacing_empty</item>
+    </style>
+
 
     <style name="App.Toolbar" parent="ThemeOverlay.AppCompat.ActionBar">
         <item name="android:textColorPrimary">@android:color/white</item>
