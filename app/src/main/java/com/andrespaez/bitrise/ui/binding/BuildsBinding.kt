@@ -20,8 +20,11 @@ object BuildsBinding {
         buildsModel?.let {
             imageView.setImageDrawable(
                 imageView.context.getDrawableCompat(
-                    if (buildsModel.pullRequestId == null) R.drawable.ic_done
-                    else R.drawable.ic_merge
+                    when {
+                        buildsModel.pullRequestId == null -> R.drawable.ic_done
+                        buildsModel.isRunning -> R.drawable.ic_running
+                        else -> R.drawable.ic_merge
+                    }
                 )
             )
 

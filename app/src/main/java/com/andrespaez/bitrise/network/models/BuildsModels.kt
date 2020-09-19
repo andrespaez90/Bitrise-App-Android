@@ -27,6 +27,9 @@ data class BuildsModel(
 
     val isFailed
         get() = status == 2 && statusText == "error"
+
+    val isRunning
+        get() = status == 0 && !isOnHold
 }
 
 data class AbortBody(
