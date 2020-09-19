@@ -21,7 +21,7 @@ object BuildsBinding {
             imageView.setImageDrawable(
                 imageView.context.getDrawableCompat(
                     when {
-                        buildsModel.pullRequestId == null -> R.drawable.ic_done
+                        buildsModel.pullRequestId == 0 -> R.drawable.ic_done
                         buildsModel.isRunning -> R.drawable.ic_running
                         else -> R.drawable.ic_merge
                     }
@@ -53,13 +53,16 @@ object BuildsBinding {
                 .fontSize(textView.context, R.dimen.font_subtitle) {
                     bold {
                         color(
-                            when {
-                                buildsModel.isOnHold -> R.color.blue_on_hold
-                                buildsModel.status == 0 -> R.color.colorAccent
-                                buildsModel.status == 1 -> R.color.green_success
-                                buildsModel.isFailed -> R.color.red_abort
-                                else -> R.color.yellow_aborted
-                            }
+                            ContextCompat.getColor(
+                                context,
+                                when {
+                                    buildsModel.isOnHold -> R.color.blue_on_hold
+                                    buildsModel.status == 0 -> R.color.colorAccent
+                                    buildsModel.status == 1 -> R.color.green_success
+                                    buildsModel.isFailed -> R.color.red_abort
+                                    else -> R.color.yellow_aborted
+                                }
+                            )
                         ) {
                             append(
                                 when {

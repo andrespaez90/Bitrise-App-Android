@@ -19,7 +19,7 @@ data class BuildsModel(
     @SerializedName("abort_reason") val abortReason: String,
     @SerializedName("triggered_workflow") val triggeredWorkflow: String,
     @SerializedName("triggered_by") val triggeredBy: String,
-    @SerializedName("pull_request_id") val pullRequestId: String?,
+    @SerializedName("pull_request_id") val pullRequestId: Int,
     @SerializedName("avatar_url") val avatarUrl: String?,
     @SerializedName("commit_message") val commitMessage: String,
     @SerializedName("is_on_hold") val isOnHold: Boolean
