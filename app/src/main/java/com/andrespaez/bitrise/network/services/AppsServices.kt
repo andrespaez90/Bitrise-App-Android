@@ -1,8 +1,6 @@
 package com.andrespaez.bitrise.network.services
 
-import com.andrespaez.bitrise.network.models.AbortBody
-import com.andrespaez.bitrise.network.models.AppModelData
-import com.andrespaez.bitrise.network.models.BuildsData
+import com.andrespaez.bitrise.network.models.*
 import io.reactivex.Completable
 import io.reactivex.Single
 import retrofit2.http.Body
@@ -17,6 +15,18 @@ interface AppsServices {
 
     @GET("v0.1/apps/{app_id}/builds")
     fun getBuilds(@Path("app_id") appId: String): Single<BuildsData>
+
+    @GET("v0.1/apps/{app_id}/branches")
+    fun getBranches(@Path("app_id") appId: String): Single<AppBranches>
+
+    @GET("v0.1/apps/{app_id}/build-workflows")
+    fun getWorkflow(@Path("app_id") appId: String): Single<AppsWorkflow>
+
+    @POST("v0.1/apps/{app_id}/builds")
+    fun startBuild(
+        @Path("app_id") appId: String,
+        @Body buildBody: StartBuildBody
+    ): Completable
 
     @POST("v0.1/apps/{app_id}/builds/{build_slug}/abort")
     fun abortBuild(

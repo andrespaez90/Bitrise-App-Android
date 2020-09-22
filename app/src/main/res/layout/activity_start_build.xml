@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.andrespaez.bitrise.viewModels.builds.StartBuildsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activities.StartBuildActivity">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:padding="@dimen/spacing_xlarge"
+            android:onClick="@{v -> viewModel.onPressBack()}"
+            app:srcCompat="@drawable/ic_back"/>
+
+        <TextView
+            android:id="@+id/textView_title"
+            style="@style/TextBig.Primary"
+            android:layout_width="@dimen/spacing_empty"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/spacing_xlarge"
+            android:text="Build Configuration"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view_divider"
+            android:layout_width="@dimen/spacing_empty"
+            android:layout_height="@dimen/spacing_xmicro"
+            android:background="@color/colorPrimary"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView_title" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInput_branch"
+            android:layout_width="@dimen/spacing_empty"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_huge"
+            android:layout_marginTop="@dimen/spacing_xlarge"
+            android:layout_marginRight="@dimen/spacing_huge"
+            android:hint="@string/copy_branch"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_divider">
+
+            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                android:id="@+id/autoComplete_branch"
+                style="@style/TextNormal.Black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.branch}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInput_workflow"
+            android:layout_width="@dimen/spacing_empty"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_huge"
+            android:layout_marginTop="@dimen/spacing_standard"
+            android:layout_marginRight="@dimen/spacing_huge"
+            android:hint="@string/copy_workflow"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textInput_branch">
+
+            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                android:id="@+id/autoComplete_workflow"
+                style="@style/TextNormal.Black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.workflow}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <EditText
+            android:id="@+id/editText_message"
+            style="@style/TextNormal"
+            android:layout_width="@dimen/spacing_empty"
+            android:layout_height="@dimen/spacing_xxxhuge"
+            android:layout_marginTop="@dimen/spacing_medium"
+            android:background="@drawable/edit_text_gray_border"
+            android:gravity="top"
+            android:hint="@string/hint_start_build_message"
+            android:importantForAutofill="no"
+            android:padding="@dimen/spacing_standard"
+            android:text="@={viewModel.message}"
+            app:layout_constraintLeft_toLeftOf="@id/textInput_branch"
+            app:layout_constraintRight_toRightOf="@id/textInput_branch"
+            app:layout_constraintTop_toBottomOf="@id/textInput_workflow" />
+
+        <Button
+            style="@style/Button.Primary"
+            android:layout_width="@dimen/spacing_empty"
+            android:layout_height="wrap_content"
+            android:onClick="@{v -> viewModel.startBuild()}"
+            android:text="@string/copy_start_build"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

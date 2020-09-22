@@ -8,10 +8,18 @@
     <string name="copy_profile">Profile</string>
 
     <string name="copy_abort">Abortar</string>
+    <string name="copy_builds">Builds</string>
+    <string name="copy_branch">Rama</string>
+    <string name="copy_workflow">Workflow</string>
 
     <string name="copy_state_running">En Porgreso</string>
     <string name="copy_state_success">Exitoso</string>
     <string name="copy_state_aborted">Abortado</string>
     <string name="copy_state_on_hold">En Espera</string>
     <string name="copy_state_failed">Fallido</string>
+    <string name="copy_start_a_build">Crear Build</string>
+    <string name="copy_start_build">Iniciar Build</string>
+
+
+    <string name="hint_start_build_message">Mensaje: ej. Desde la App</string>
 </resources>

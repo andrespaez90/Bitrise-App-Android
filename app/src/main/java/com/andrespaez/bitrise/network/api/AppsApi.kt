@@ -1,6 +1,7 @@
 package com.andrespaez.bitrise.network.api
 
 import com.andrespaez.bitrise.network.models.AppModel
+import com.andrespaez.bitrise.network.models.StartBuildBody
 import com.andrespaez.bitrise.network.services.AppsServices
 import io.reactivex.Scheduler
 import io.reactivex.Single
@@ -20,6 +21,33 @@ class AppsApi @Inject constructor(private val services: AppsServices) : BaseApi(
     fun getAppBuilds(appSlug: String, scheduler: Scheduler? = null) =
         subscribe(
             services.getBuilds(appSlug).flatMap { Single.just(it.data) },
+            scheduler
+        )
+
+    @CheckReturnValue
+    fun getBranches(appSlug: String, scheduler: Scheduler? = null) =
+        subscribe(
+            services.getBranches(appSlug).flatMap { Single.just(it.branches) },
+            scheduler
+        )
+
+    @CheckReturnValue
+    fun getWorkFlows(appSlug: String, scheduler: Scheduler? = null) =
+        subscribe(
+            services.getWorkflow(appSlug).flatMap { Single.just(it.workFlows) },
+            scheduler
+        )
+
+    @CheckReturnValue
+    fun startBuild(
+        appSlug: String,
+        branch: String,
+        workflow: String,
+        message: String,
+        scheduler: Scheduler? = null
+    ) =
+        subscribe(
+            services.startBuild(appSlug, StartBuildBody(branch, workflow, message)),
             scheduler
         )
 

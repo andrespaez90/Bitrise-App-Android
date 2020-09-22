@@ -1,11 +1,16 @@
-package com.andrespaez.bitrise.viewModels
+package com.andrespaez.bitrise.viewModels.builds
 
+import android.os.Bundle
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.andrespaez.bitrise.network.api.AppsApi
 import com.andrespaez.bitrise.network.models.AppModel
 import com.andrespaez.bitrise.network.models.BuildsModel
+import com.andrespaez.bitrise.ui.activities.ACTIVITY_PARAM_APP_MODEL
+import com.andrespaez.bitrise.ui.activities.StartBuildActivity
+import com.andrespaez.bitrise.viewModels.AndroidViewModel
+import com.andrespaez.bitrise.viewModels.models.StartActivityModel
 
 class BuildsViewModel @ViewModelInject constructor(
     private val appsApi: AppsApi,
@@ -43,6 +48,12 @@ class BuildsViewModel @ViewModelInject constructor(
             .doOnSubscribe { hideLoading() }
             .subscribe({ updateBuilds() }, ::showServiceError)
         )
+    }
+
+    fun startBuildView(){
+        startActivity.postValue(StartActivityModel(StartBuildActivity::class.java).apply {
+            bundle = Bundle().apply { putParcelable(ACTIVITY_PARAM_APP_MODEL, currentAppModel) }
+        })
     }
 
     /**

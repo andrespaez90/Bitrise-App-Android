@@ -28,6 +28,26 @@
         <item name="android:textSize">@dimen/font_h1</item>
     </style>
 
+    <style name="TextMicro.Primary" parent="TextMicro">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="TextSmall.Primary" parent="TextSmall">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="TextNormal.Primary" parent="TextNormal">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="TextBig.Primary" parent="TextBig">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="TextHuge.Primary" parent="TextHuge">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
     <style name="TextMicro.White" parent="TextMicro">
         <item name="android:textColor">@android:color/white</item>
     </style>

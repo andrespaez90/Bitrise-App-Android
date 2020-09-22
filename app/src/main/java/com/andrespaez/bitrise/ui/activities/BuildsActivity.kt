@@ -13,7 +13,7 @@ import com.andrespaez.bitrise.ui.adapters.list.models.GenericItemAbstract
 import com.andrespaez.bitrise.ui.factories.AppListFactory
 import com.andrespaez.bitrise.ui.factories.ITEM_BUILD_SELECTOR
 import com.andrespaez.bitrise.ui.items.BuildEvents
-import com.andrespaez.bitrise.viewModels.BuildsViewModel
+import com.andrespaez.bitrise.viewModels.builds.BuildsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 const val ACTIVITY_PARAM_APP_MODEL = "param_app_model"
@@ -63,6 +63,7 @@ class BuildsActivity : BaseActivity() {
 
     private fun initListeners() {
         binding.layoutRefresh.setOnRefreshListener { viewModel.updateBuilds() }
+        binding.buttonStartBuild.setOnClickListener { viewModel.startBuildView() }
     }
 
     /**

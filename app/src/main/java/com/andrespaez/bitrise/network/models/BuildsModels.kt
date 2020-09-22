@@ -38,3 +38,42 @@ data class AbortBody(
     @SerializedName("skip_notifications") val skipNotifications: Boolean = true
 )
 
+data class AppsWorkflow(
+    @SerializedName("data") val workFlows: List<String>
+)
+
+data class AppBranches(
+    @SerializedName("data") val branches: List<String>
+)
+
+data class StartBuildBody(
+    @SerializedName("build_params") val params: BuildParams,
+    @SerializedName("triggered_by") val triggeredSource: String = "from bitrise app",
+    @SerializedName("hook_info") val hookInfo: HookInfo = HookInfo()
+
+) {
+
+    constructor(
+        branch: String,
+        workflowId: String,
+        message: String
+    ) : this(
+        BuildParams(
+            branch,
+            workflowId,
+            message
+        )
+    )
+}
+
+data class BuildParams(
+    @SerializedName("branch") val branch: String,
+    @SerializedName("workflow_id") val workflow: String,
+    @SerializedName("commit_message") val commitMessage: String
+)
+
+data class HookInfo(
+    @SerializedName("type") val type: String = "bitrise"
+)
+
+

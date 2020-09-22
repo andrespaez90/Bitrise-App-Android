@@ -7,11 +7,21 @@
 
     <string name="copy_dashboard">Dashboard</string>
     <string name="copy_profile">Profile</string>
+
     <string name="copy_abort">Abort</string>
+    <string name="copy_builds">Builds</string>
+    <string name="copy_branch">Branch</string>
+    <string name="copy_workflow">Workflow</string>
 
     <string name="copy_state_running">Running</string>
     <string name="copy_state_success">Success</string>
     <string name="copy_state_aborted">Aborted</string>
     <string name="copy_state_on_hold">On hold</string>
     <string name="copy_state_failed">Failed</string>
+    <string name="copy_start_a_build">Start Build</string>
+    <string name="copy_start_build">Start Build</string>
+
+
+    <string name="hint_start_build_message">Message: e.g Triggered by Bitrise App</string>
+
 </resources>

@@ -7,8 +7,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.activities.BuildsActivity"
-        android:background="@color/background">
+        android:background="@color/background"
+        tools:context=".ui.activities.BuildsActivity">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_center"
@@ -28,7 +28,7 @@
             android:layout_marginBottom="@dimen/spacing_xlarge"
             android:paddingLeft="@dimen/spacing_xxlarge"
             android:paddingRight="@dimen/spacing_xxlarge"
-            android:text="Start a Build"
+            android:text="@string/copy_start_a_build"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/guideline_center"
             app:layout_constraintTop_toTopOf="parent" />
@@ -42,7 +42,8 @@
             android:layout_marginLeft="@dimen/spacing_xlarge"
             android:drawablePadding="@dimen/spacing_standard"
             android:gravity="center_vertical"
-            android:text="BUILDS"
+            android:text="@string/copy_builds"
+            app:textAllCaps="true"
             app:drawableLeft="@drawable/ic_lists_apps"
             app:layout_constraintBottom_toBottomOf="@id/button_start_build"
             app:layout_constraintEnd_toStartOf="@id/button_start_build"
