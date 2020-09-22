@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="com.andrespaez.bitrise.network.models.BuildsModel" />
+            type="com.bitrise.app.network.models.BuildsModel" />
 
     </data>
 
@@ -97,7 +97,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="Success" />
 
-                    <com.andrespaez.bitrise.ui.views.VectorTextView
+                    <com.bitrise.app.ui.views.VectorTextView
                         style="@style/TextNormal.Gray"
                         android:layout_width="@dimen/spacing_empty"
                         android:layout_height="wrap_content"

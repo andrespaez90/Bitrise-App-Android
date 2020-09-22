@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="com.andrespaez.bitrise.network.models.AppModel" />
+            type="com.bitrise.app.network.models.AppModel" />
 
     </data>
 

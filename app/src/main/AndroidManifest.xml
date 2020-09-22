@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.andrespaez.bitrise">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.bitrise.app">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" tools:node="remove"/>
 
     <application
-        android:name=".SelfApplication"
+        android:name="com.bitrise.app.SelfApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,7 +17,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".ui.activities.MainActivity"
+            android:name="com.bitrise.app.ui.activities.MainActivity"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,15 +27,15 @@
         </activity>
 
         <activity
-            android:name=".ui.activities.HomeActivity"
+            android:name="com.bitrise.app.ui.activities.HomeActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.activities.BuildsActivity"
+            android:name="com.bitrise.app.ui.activities.BuildsActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.activities.StartBuildActivity"
+            android:name="com.bitrise.app.ui.activities.StartBuildActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
 

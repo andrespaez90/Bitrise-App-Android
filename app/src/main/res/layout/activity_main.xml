@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.andrespaez.bitrise.viewModels.MainActivityViewModel" />
+            type="com.bitrise.app.viewModels.MainActivityViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
