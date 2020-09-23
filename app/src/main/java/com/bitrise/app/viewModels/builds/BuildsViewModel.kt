@@ -7,8 +7,10 @@ import androidx.lifecycle.MutableLiveData
 import com.bitrise.app.network.api.AppsApi
 import com.bitrise.app.network.models.AppModel
 import com.bitrise.app.network.models.BuildsModel
-import com.bitrise.app.ui.activities.ACTIVITY_PARAM_APP_MODEL
-import com.bitrise.app.ui.activities.StartBuildActivity
+import com.bitrise.app.ui.activities.build.ACTIVITY_PARAM_APP_MODEL
+import com.bitrise.app.ui.activities.build.ACTIVITY_PARAM_BUILD_MODEL
+import com.bitrise.app.ui.activities.build.BuildDetailActivity
+import com.bitrise.app.ui.activities.build.StartBuildActivity
 import com.bitrise.app.viewModels.AndroidViewModel
 import com.bitrise.app.viewModels.models.StartActivityModel
 
@@ -50,9 +52,18 @@ class BuildsViewModel @ViewModelInject constructor(
         )
     }
 
-    fun startBuildView(){
+    fun startBuildView() {
         startActivity.postValue(StartActivityModel(StartBuildActivity::class.java).apply {
             bundle = Bundle().apply { putParcelable(ACTIVITY_PARAM_APP_MODEL, currentAppModel) }
+        })
+    }
+
+    fun openBuildDetail(data: BuildsModel) {
+        startActivity.postValue(StartActivityModel(BuildDetailActivity::class.java).apply {
+            bundle = Bundle().apply {
+                putParcelable(ACTIVITY_PARAM_APP_MODEL, currentAppModel)
+                putParcelable(ACTIVITY_PARAM_BUILD_MODEL, data)
+            }
         })
     }
 

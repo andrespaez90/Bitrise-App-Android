@@ -1,4 +1,4 @@
-package com.bitrise.app.ui.activities
+package com.bitrise.app.ui.activities.build
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import com.bitrise.app.R
 import com.bitrise.app.databinding.ActivityStartBuildBinding
 import com.bitrise.app.network.models.AppModel
+import com.bitrise.app.ui.activities.BaseActivity
 import com.bitrise.app.viewModels.builds.StartBuildsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 

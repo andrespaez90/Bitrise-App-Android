@@ -12,11 +12,11 @@ data class BuildsData(
 data class BuildsModel(
     @SerializedName("triggered_at") val triggeredAt: String,
     @SerializedName("started_on_worker_at") val startedOnWorkerAt: String,
-    @SerializedName("finished_at") val finishedAt: String,
+    @SerializedName("finished_at") val finishedAt: String?,
     @SerializedName("slug") val slug: String,
     @SerializedName("status") val status: Int,
     @SerializedName("status_text") val statusText: String,
-    @SerializedName("abort_reason") val abortReason: String,
+    @SerializedName("abort_reason") val abortReason: String?,
     @SerializedName("triggered_workflow") val triggeredWorkflow: String,
     @SerializedName("triggered_by") val triggeredBy: String,
     @SerializedName("pull_request_id") val pullRequestId: Int,
@@ -74,6 +74,17 @@ data class BuildParams(
 
 data class HookInfo(
     @SerializedName("type") val type: String = "bitrise"
+)
+
+data class LogModel(
+    @SerializedName("expiring_raw_log_url") val expiringRaw: String,
+    @SerializedName("generated_log_chunks_num") val generatedLog: Int,
+    @SerializedName("is_archived") val isArchived: Boolean,
+    @SerializedName("log_chunks") val logChunks: List<LogChunk>
+)
+
+data class LogChunk(
+    @SerializedName("chunk") val chunk: String
 )
 
 

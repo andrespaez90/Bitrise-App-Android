@@ -28,6 +28,12 @@ interface AppsServices {
         @Body buildBody: StartBuildBody
     ): Completable
 
+    @GET("v0.1/apps/{app_id}/builds/{build_slug}/log")
+    fun getLog(
+        @Path("app_id") appId: String,
+        @Path("build_slug") buildSlug: String,
+    ): Single<LogModel>
+
     @POST("v0.1/apps/{app_id}/builds/{build_slug}/abort")
     fun abortBuild(
         @Path("app_id") appId: String,

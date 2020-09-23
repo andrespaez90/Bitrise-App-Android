@@ -1,4 +1,4 @@
-package com.bitrise.app.ui.activities
+package com.bitrise.app.ui.activities.build
 
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -8,6 +8,7 @@ import com.bitrise.app.R
 import com.bitrise.app.databinding.ActivityBuildsBinding
 import com.bitrise.app.network.models.AppModel
 import com.bitrise.app.network.models.BuildsModel
+import com.bitrise.app.ui.activities.BaseActivity
 import com.bitrise.app.ui.adapters.list.GenericAdapter
 import com.bitrise.app.ui.adapters.list.models.GenericItemAbstract
 import com.bitrise.app.ui.factories.AppListFactory
@@ -17,6 +18,7 @@ import com.bitrise.app.viewModels.builds.BuildsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 const val ACTIVITY_PARAM_APP_MODEL = "param_app_model"
+const val ACTIVITY_PARAM_BUILD_MODEL = "param_build_model"
 
 @AndroidEntryPoint
 class BuildsActivity : BaseActivity() {
@@ -40,6 +42,7 @@ class BuildsActivity : BaseActivity() {
                 setListener { data ->
                     when (data) {
                         is BuildEvents.AbortBuild -> viewModel.abortBuild(data.data)
+                        is BuildEvents.ViewBuild -> viewModel.openBuildDetail(data.data)
                     }
                 }
             })

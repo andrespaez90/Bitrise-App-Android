@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
-        tools:context=".ui.activities.BuildsActivity">
+        tools:context=".ui.activities.build.BuildsActivity">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_center"

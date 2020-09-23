@@ -52,6 +52,16 @@ class AppsApi @Inject constructor(private val services: AppsServices) : BaseApi(
         )
 
     @CheckReturnValue
+    fun getLog(
+        appSlug: String,
+        buildSlug: String,
+        scheduler: Scheduler? = null
+    ) = subscribe(
+        services.getLog(appSlug, buildSlug),
+        scheduler
+    )
+
+    @CheckReturnValue
     fun abortBuild(appSlug: String, buildSlug: String, scheduler: Scheduler? = null) =
         subscribe(
             services.abortBuild(appSlug, buildSlug),
