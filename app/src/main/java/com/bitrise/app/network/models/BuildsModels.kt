@@ -21,7 +21,7 @@ data class BuildsModel(
     @SerializedName("triggered_by") val triggeredBy: String,
     @SerializedName("pull_request_id") val pullRequestId: Int,
     @SerializedName("avatar_url") val avatarUrl: String?,
-    @SerializedName("commit_message") val commitMessage: String,
+    @SerializedName("commit_message") private val _commitMessage: String?,
     @SerializedName("is_on_hold") val isOnHold: Boolean
 ) : Parcelable {
 
@@ -30,6 +30,9 @@ data class BuildsModel(
 
     val isRunning
         get() = status == 0 && !isOnHold
+
+    val commitMessage
+        get() = _commitMessage.orEmpty()
 }
 
 data class AbortBody(
