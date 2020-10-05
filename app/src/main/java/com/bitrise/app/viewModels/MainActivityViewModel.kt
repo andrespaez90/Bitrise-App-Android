@@ -23,7 +23,7 @@ class MainActivityViewModel @ViewModelInject constructor(
     val accessToken = MutableLiveData<String>()
 
     init {
-        validateToke()
+        validateToken()
     }
 
     /**
@@ -32,10 +32,10 @@ class MainActivityViewModel @ViewModelInject constructor(
 
     fun saveAndValidateToken() {
         prefsManager.set(AuthorizationPreference(), accessToken.value)
-        validateToke()
+        validateToken()
     }
 
-    private fun validateToke() {
+    private fun validateToken() {
         if (prefsManager.getString(AuthorizationPreference()).isNotBlank()) {
             disposables.add(userApi.getProfile()
                 .doOnSubscribe { showLoading() }
