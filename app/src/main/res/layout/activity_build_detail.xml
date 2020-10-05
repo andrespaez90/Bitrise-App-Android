@@ -13,8 +13,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipChildren="true"
         android:background="@color/background"
+        android:clipChildren="true"
         android:paddingTop="@dimen/spacing_xlarge"
         android:paddingBottom="@dimen/spacing_xlarge"
         tools:context=".ui.activities.build.BuildDetailActivity">
@@ -95,7 +95,9 @@
                         android:paddingTop="@dimen/spacing_micro"
                         android:paddingRight="@dimen/spacing_standard"
                         android:paddingBottom="@dimen/spacing_micro"
+                        android:singleLine="true"
                         android:text="@{viewModel.build.triggeredWorkflow}"
+                        app:layout_constrainedWidth="true"
                         app:layout_constraintEnd_toStartOf="@id/button_abort"
                         app:layout_constraintHorizontal_bias="0"
                         app:layout_constraintStart_toEndOf="@id/textView_state"
@@ -127,9 +129,9 @@
         <ScrollView
             android:layout_width="@dimen/spacing_empty"
             android:layout_height="@dimen/spacing_empty"
+            android:layout_marginTop="@dimen/spacing_xlarge"
             android:background="@color/log_background"
             android:clipToPadding="true"
-            android:layout_marginTop="@dimen/spacing_xlarge"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="@id/layout_build"
             app:layout_constraintRight_toRightOf="@id/layout_build"
@@ -147,8 +149,8 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="marquee"
                     android:marqueeRepeatLimit="marquee_forever"
-                    android:scrollbars="vertical"
                     android:padding="@dimen/spacing_small"
+                    android:scrollbars="vertical"
                     android:scrollHorizontally="true"
                     app:log_text="@{viewModel.buildLog}" />
 
