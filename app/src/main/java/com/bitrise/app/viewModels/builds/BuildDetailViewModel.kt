@@ -1,6 +1,7 @@
 package com.bitrise.app.viewModels.builds
 
 import androidx.hilt.lifecycle.ViewModelInject
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.bitrise.app.network.api.AppsApi
 import com.bitrise.app.network.models.BuildsModel
@@ -11,9 +12,9 @@ class BuildDetailViewModel @ViewModelInject constructor(
     val appsApi: AppsApi
 ) : AndroidViewModel() {
 
-    val build = MutableLiveData<BuildsModel>()
+    private val _build = MutableLiveData<BuildsModel>()
 
-    val buildLog = MutableLiveData<String>()
+    private val _buildLog = MutableLiveData<String>()
 
     private lateinit var appSlug: String
 
@@ -23,7 +24,7 @@ class BuildDetailViewModel @ViewModelInject constructor(
 
     fun updateBuild(appSlug: String, build: BuildsModel) {
         this.appSlug = appSlug
-        this.build.postValue(build)
+        this._build.postValue(build)
         getBuildLog(this.appSlug, build)
 
     }
@@ -40,7 +41,16 @@ class BuildDetailViewModel @ViewModelInject constructor(
     }
 
     private fun updateLog(log: LogModel) {
-        buildLog.postValue(log.logChunks.joinToString { it.chunk })
+        _buildLog.postValue(log.logChunks.joinToString { it.chunk })
     }
+
+    /**
+     * Live Data
+     */
+
+    val buildLog: LiveData<String> = _buildLog
+
+    val build: LiveData<BuildsModel> = _build
+
 
 }

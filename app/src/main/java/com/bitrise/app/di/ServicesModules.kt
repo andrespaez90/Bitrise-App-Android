@@ -1,6 +1,7 @@
 package com.bitrise.app.di
 
 import com.bitrise.app.network.services.AppsServices
+import com.bitrise.app.network.services.OrganizationsServices
 import com.bitrise.app.network.services.UserServices
 import dagger.Module
 import dagger.Provides
@@ -22,4 +23,9 @@ class ServicesModules {
     @Singleton
     fun appServices(retrofit: Retrofit): AppsServices =
         retrofit.create(AppsServices::class.java)
+
+    @Provides
+    @Singleton
+    fun organizationsServices(retrofit: Retrofit): OrganizationsServices =
+        retrofit.create(OrganizationsServices::class.java)
 }

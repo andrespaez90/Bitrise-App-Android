@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.bitrise.app.network.models.Organization" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:paddingLeft="@dimen/spacing_standard"
+        android:paddingTop="@dimen/spacing_large"
+        android:paddingRight="@dimen/spacing_standard"
+        android:paddingBottom="@dimen/spacing_large">
+
+        <ImageView
+            android:id="@+id/imageView_icon"
+            android:layout_width="@dimen/size_organization_image"
+            android:layout_height="@dimen/size_organization_image"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:load_image="@{model.avatarIcon}"
+            tools:src="@mipmap/ic_default_avatar" />
+
+        <TextView
+            android:id="@+id/textView_description"
+            style="@style/TextNormal.Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_large"
+            android:layout_marginLeft="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_standard"
+            android:paddingRight="@dimen/spacing_large"
+            android:singleLine="true"
+            android:text="@{model.name}"
+            app:layout_constraintLeft_toRightOf="@id/imageView_icon"
+            app:layout_constraintTop_toTopOf="@id/imageView_icon"
+            tools:text="Organization Name" />
+
+        <LinearLayout
+            android:layout_width="@dimen/spacing_empty"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toLeftOf="@id/textView_description"
+            app:layout_constraintRight_toRightOf="@id/textView_description"
+            app:layout_constraintTop_toBottomOf="@id/textView_description"
+            app:organization_owners="@{model.owners}" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

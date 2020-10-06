@@ -1,6 +1,7 @@
 package com.bitrise.app.viewModels
 
 import android.app.Activity
+import android.os.Bundle
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import com.bitrise.app.R
@@ -45,7 +46,11 @@ class MainActivityViewModel @ViewModelInject constructor(
     }
 
     private fun startDashboard(profile: Profile) {
-        startActivity.postValue(StartActivityModel(HomeActivity::class.java))
+        startActivity.postValue(
+            StartActivityModel(HomeActivity::class.java).apply {
+                bundle = Bundle().apply { putParcelable("profile", profile) }
+            }
+        )
         closeView.postValue(FinishActivityModel(Activity.RESULT_OK))
     }
 

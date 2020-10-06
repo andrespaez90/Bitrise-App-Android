@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.bitrise.app.network.models.UserActivity" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:paddingLeft="@dimen/spacing_medium"
+        android:paddingTop="@dimen/spacing_large"
+        android:paddingRight="@dimen/spacing_medium"
+        android:paddingBottom="@dimen/spacing_large">
+
+        <ImageView
+            android:id="@+id/imageView_icon"
+            android:layout_width="32dp"
+            android:layout_height="@dimen/spacing_empty"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:load_image="@{model.icon}"
+            tools:src="@drawable/ic_check_circle" />
+
+        <TextView
+            android:id="@+id/textView_description"
+            style="@style/TextNormal.Black"
+            android:layout_width="@dimen/spacing_empty"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_large"
+            android:layout_marginLeft="@dimen/spacing_large"
+            android:maxLines="3"
+            app:activity_description="@{model}"
+            app:layout_constraintLeft_toRightOf="@id/imageView_icon"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
