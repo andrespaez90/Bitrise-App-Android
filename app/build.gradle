@@ -51,8 +51,6 @@ dependencies {
     implementation 'androidx.activity:activity-ktx:1.1.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
-    implementation 'androidx.navigation:navigation-fragment:2.3.0'
-    implementation 'androidx.navigation:navigation-ui:2.3.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
     testImplementation 'junit:junit:4.12'
@@ -62,8 +60,10 @@ dependencies {
     implementation 'androidx.multidex:multidex:2.0.1'
 
     //Lifecycle
-    implementation "androidx.lifecycle:lifecycle-runtime:$rootProject.ext.lifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.ext.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.ext.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.ext.lifecycleVersion"
+    kapt "androidx.lifecycle:lifecycle-compiler:$rootProject.ext.lifecycleVersion"
+    // alternately - if using Java8, use the following instead of lifecycle-compiler
     implementation "androidx.lifecycle:lifecycle-common-java8:$rootProject.ext.lifecycleVersion"
 
     //UI

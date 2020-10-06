@@ -1,5 +1,6 @@
 package com.bitrise.app.ui.activities.build
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
@@ -75,5 +76,12 @@ class BuildsActivity : BaseActivity() {
 
     override fun showLoading(showing: Boolean) {
         binding.layoutRefresh.isRefreshing = showing
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == START_BUILD_ACTIVITY_CODE && resultCode == RESULT_OK) {
+            viewModel.updateBuilds()
+        }
+        super.onActivityResult(requestCode, resultCode, data)
     }
 }

@@ -13,6 +13,8 @@ import com.bitrise.app.ui.activities.BaseActivity
 import com.bitrise.app.viewModels.builds.StartBuildsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+const val START_BUILD_ACTIVITY_CODE = 1012
+
 @AndroidEntryPoint
 class StartBuildActivity : BaseActivity() {
 
