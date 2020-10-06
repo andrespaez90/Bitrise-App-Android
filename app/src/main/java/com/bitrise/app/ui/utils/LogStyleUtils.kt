@@ -29,21 +29,11 @@ fun ansiEscapeToSpannable(context: Context, text: String): Spannable {
         val end = result.range.last + 1
         val ansiInstruction = AnsiInstruction(context, stringCode)
         offset += stringCode.length
-        when (ansiInstruction.decorationCode) {
-            "0" -> {
-                val topInstruction = stack.pop().copy(end = end - offset)
-                spans.add(topInstruction)
-            }
-            else -> {
-                val instruction =
-                    AnsiInstruction(context, stringCode)
-                val span = AnsiSpan(
-                    instruction,
-                    start - offset,
-                    0
-                )
-                stack.push(span)
-            }
+        if (ansiInstruction.decorationCode == "0" && stack.isNotEmpty()) {
+            spans.add(stack.pop().copy(end = end - offset))
+        } else {
+            val span = AnsiSpan(AnsiInstruction(context, stringCode), start - offset, 0)
+            stack.push(span)
         }
     }
 
@@ -63,6 +53,7 @@ data class AnsiSpan(
 )
 
 class AnsiInstruction(context: Context, code: String) {
+
     val spans: List<ParcelableSpan> by lazy {
         listOfNotNull(
             getSpan(colorCode, context),
@@ -92,9 +83,7 @@ class AnsiInstruction(context: Context, code: String) {
                 colorCode = colorCodes[0]
                 decorationCode = colorCodes[1]
             }
-            1 -> {
-                decorationCode = colorCodes[0]
-            }
+            1 -> decorationCode = colorCodes[0]
         }
     }
 }
@@ -110,7 +99,7 @@ fun getSpan(code: String?, context: Context): ParcelableSpan? =
         "32" -> ForegroundColorSpan(ContextCompat.getColor(context, R.color.log_green))
         "33" -> ForegroundColorSpan(ContextCompat.getColor(context, R.color.log_yellow))
         "34" -> ForegroundColorSpan(ContextCompat.getColor(context, R.color.log_blue))
-        "35" -> ForegroundColorSpan(ContextCompat.getColor(context, R.color.log_red_light))
+        "35" -> ForegroundColorSpan(ContextCompat.getColor(context, R.color.log_purple))
         "36" -> ForegroundColorSpan(ContextCompat.getColor(context, R.color.log_blue_light))
         "37" -> ForegroundColorSpan(ContextCompat.getColor(context, R.color.log_white))
         "40" -> BackgroundColorSpan(Color.BLACK)
