@@ -28,19 +28,32 @@
             app:layout_constraintLeft_toLeftOf="parent" />
 
         <TextView
+            android:id="@+id/textView_user_description"
             style="@style/TextBig.Black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/spacing_large"
             android:layout_marginRight="@dimen/spacing_large"
             app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@id/imageView_profile"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintLeft_toRightOf="@id/imageView_profile"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="@id/imageView_profile"
-            app:layout_constraintBottom_toBottomOf="@id/imageView_profile"
             app:user_description="@{viewModel.profile}"
             tools:text="UserName" />
+
+        <com.bitrise.app.ui.views.VectorTextView
+            style="@style/TextSmall.Black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/copy_log_out"
+            app:drawableLeft="@drawable/ic_logout"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:drawablePadding="@dimen/spacing_micro"
+            android:onClick="@{()-> viewModel.logOut()}"
+            app:layout_constraintLeft_toLeftOf="@id/textView_user_description"
+            app:layout_constraintTop_toBottomOf="@id/textView_user_description" />
 
         <LinearLayout
             android:id="@+id/container_organizations"

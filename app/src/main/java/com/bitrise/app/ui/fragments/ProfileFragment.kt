@@ -24,7 +24,7 @@ import com.bitrise.app.viewModels.home.ProfileViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ProfileFragment : Fragment() {
+class ProfileFragment : BaseFragment() {
 
     private val viewModel: ProfileViewModel by viewModels()
 
@@ -59,6 +59,7 @@ class ProfileFragment : Fragment() {
     private fun initViewModel() {
         viewModel.updateUserProfile(requireActivity().intent.extras?.get("profile") as Profile?)
         binding.viewModel = viewModel
+        viewModel.startActivity().observe(viewLifecycleOwner, ::startActivity)
         viewModel.onOrganizationsChange.observe(viewLifecycleOwner, ::updateOrganizations)
         viewModel.onActivityChange.observe(viewLifecycleOwner, ::updateRecentActivity)
     }

@@ -25,5 +25,6 @@
     <string name="hint_start_build_message">Message: e.g Triggered by Bitrise App</string>
     <string name="copy_your_recent_activity">Your recent activity</string>
     <string name="copy_organizations">Organizations</string>
+    <string name="copy_log_out">Log Out</string>
 
 </resources>

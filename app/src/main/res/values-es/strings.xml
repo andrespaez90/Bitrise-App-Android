@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="copy_log_in">Ingresar</string>
+    <string name="copy_log_out">Cerrar Sesion</string>
+
     <string name="copy_input_access_token">"Ingresa tu personal access token "</string>
     <string name="error_access_token_validation">Please check your access token on Bitrise.io</string>
 
@@ -24,5 +26,6 @@
     <string name="copy_organizations">Organizaciones</string>
 
     <string name="hint_start_build_message">Mensaje: ej. Desde la App</string>
+
 
 </resources>

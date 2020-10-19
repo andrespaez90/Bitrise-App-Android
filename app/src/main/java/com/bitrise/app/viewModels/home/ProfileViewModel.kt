@@ -1,16 +1,22 @@
 package com.bitrise.app.viewModels.home
 
+import android.content.Intent
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.bitrise.app.data.AuthorizationPreference
+import com.bitrise.app.managers.preferences.PrefsManager
 import com.bitrise.app.network.api.OrganizationApi
 import com.bitrise.app.network.api.UserApi
 import com.bitrise.app.network.models.Organization
 import com.bitrise.app.network.models.Profile
 import com.bitrise.app.network.models.UserActivity
+import com.bitrise.app.ui.activities.MainActivity
 import com.bitrise.app.viewModels.AndroidViewModel
+import com.bitrise.app.viewModels.models.StartActivityModel
 
 class ProfileViewModel @ViewModelInject constructor(
+    private val prefsManager: PrefsManager,
     private val profileApi: UserApi,
     private val organizationApi: OrganizationApi
 ) : AndroidViewModel() {
@@ -41,6 +47,17 @@ class ProfileViewModel @ViewModelInject constructor(
             profileApi.getProfile()
                 .subscribe(_profile::postValue, ::showServiceError)
         )
+    }
+
+    /**
+     * Actions
+     */
+
+    fun logOut() {
+        prefsManager.set(AuthorizationPreference(), "")
+        startActivity.postValue(StartActivityModel(MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        })
     }
 
     /**
