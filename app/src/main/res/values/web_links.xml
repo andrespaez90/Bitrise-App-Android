@@ -1,0 +1,5 @@
+<resources>
+
+    <string name="link_token_generator" translatable="false">https://devcenter.bitrise.io/api/authentication/</string>
+
+</resources>

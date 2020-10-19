@@ -28,9 +28,11 @@ inline fun SpannableStringBuilder.appendClickableText(
     isUnderlineText: Boolean = true,
     crossinline onClickAction: () -> Unit
 ) = inSpans(object : ClickableSpan() {
+
     override fun updateDrawState(textPaint: TextPaint) {
         textPaint.isUnderlineText = isUnderlineText
     }
 
-    override fun onClick(view: View) = onClickAction()
+    override fun onClick(view: View) = run { onClickAction() }
+
 }) { append(text) }

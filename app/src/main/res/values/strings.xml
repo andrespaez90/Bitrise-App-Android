@@ -13,6 +13,7 @@
     <string name="copy_branch">Branch</string>
     <string name="copy_workflow">Workflow</string>
 
+    <string name="copy_here">here</string>
     <string name="copy_state_running">Running</string>
     <string name="copy_state_success">Success</string>
     <string name="copy_state_aborted">Aborted</string>
@@ -21,10 +22,12 @@
     <string name="copy_start_a_build">Start Build</string>
     <string name="copy_start_build">Start Build</string>
 
+    <string name="copy_get_token_message">Don\'t have a token? get it </string>
 
     <string name="hint_start_build_message">Message: e.g Triggered by Bitrise App</string>
     <string name="copy_your_recent_activity">Your recent activity</string>
     <string name="copy_organizations">Organizations</string>
     <string name="copy_log_out">Log Out</string>
+    <string name="copy_share">Share</string>
 
 </resources>
