@@ -32,7 +32,11 @@ fun ansiEscapeToSpannable(context: Context, text: String): Spannable {
         if (ansiInstruction.decorationCode == "0" && stack.isNotEmpty()) {
             spans.add(stack.pop().copy(end = end - offset))
         } else {
-            val span = AnsiSpan(AnsiInstruction(context, stringCode), start - offset, 0)
+            val span = AnsiSpan(
+                AnsiInstruction(context, stringCode),
+                start - if (offset > start) start else offset,
+                0
+            )
             stack.push(span)
         }
     }
