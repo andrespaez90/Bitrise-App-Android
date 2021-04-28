@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import com.bitrise.app.R
 import com.bitrise.app.databinding.ItemAppListBinding
 import com.bitrise.app.network.models.AppModel
 import com.bitrise.app.ui.adapters.list.models.GenericItemView
@@ -20,7 +21,14 @@ class AppDescriptionViewItem(context: Context) : GenericItemView<AppModel> {
             FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
-            )
+            ).apply {
+                setMargins(
+                    context.resources.getDimensionPixelOffset(R.dimen.spacing_standard),
+                    context.resources.getDimensionPixelOffset(R.dimen.spacing_micro),
+                    context.resources.getDimensionPixelOffset(R.dimen.spacing_standard),
+                    context.resources.getDimensionPixelOffset(R.dimen.spacing_micro)
+                )
+            }
     }
 
     override fun bind(data: AppModel) {

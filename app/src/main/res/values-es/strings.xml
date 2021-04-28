@@ -31,4 +31,7 @@
 
     <string name="hint_start_build_message">Mensaje: ej. Desde la App</string>
 
+    <string name="title_build_time">Build time</string>
+    <string name="title_status_distribution">Distribution del estado</string>
+
 </resources>

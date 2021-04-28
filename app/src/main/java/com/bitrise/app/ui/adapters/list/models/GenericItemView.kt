@@ -6,9 +6,9 @@ interface GenericItemView<T> {
 
     val data: T
 
-    fun bind(var1: T)
+    fun bind(data: T)
 
-    fun setSelected(var1: Boolean)
+    fun setSelected(isSelected: Boolean)
 
     fun getView(): View? = null
 }

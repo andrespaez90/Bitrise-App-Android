@@ -22,7 +22,7 @@ object GeneralBindings {
     fun loadImage(imageView: ImageView, imageUrl: String?) {
         var builder = getGlideRequestManager(imageView.context)?.load(imageUrl)
         val options =
-            RequestOptions().placeholder(R.drawable.ic_no_image).dontAnimate().diskCacheStrategy(
+            RequestOptions().placeholder(R.drawable.ic_logo_face).dontAnimate().diskCacheStrategy(
                 DiskCacheStrategy.NONE
             )
         builder = builder?.apply(options)

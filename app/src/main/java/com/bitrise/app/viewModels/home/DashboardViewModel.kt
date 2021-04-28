@@ -3,7 +3,6 @@ package com.bitrise.app.viewModels.home
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.bitrise.app.network.api.AppsApi
@@ -12,8 +11,11 @@ import com.bitrise.app.ui.activities.build.ACTIVITY_PARAM_APP_MODEL
 import com.bitrise.app.ui.activities.build.BuildsActivity
 import com.bitrise.app.viewModels.AndroidViewModel
 import com.bitrise.app.viewModels.models.StartActivityModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class DashboardViewModel @ViewModelInject constructor(
+@HiltViewModel
+class DashboardViewModel @Inject constructor(
     private val appsApi: AppsApi
 ) : AndroidViewModel() {
 

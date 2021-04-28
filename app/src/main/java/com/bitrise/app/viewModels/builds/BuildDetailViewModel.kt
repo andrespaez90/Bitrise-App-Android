@@ -1,14 +1,16 @@
 package com.bitrise.app.viewModels.builds
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.bitrise.app.network.api.AppsApi
 import com.bitrise.app.network.models.BuildsModel
 import com.bitrise.app.network.models.LogModel
 import com.bitrise.app.viewModels.AndroidViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class BuildDetailViewModel @ViewModelInject constructor(
+@HiltViewModel
+class BuildDetailViewModel @Inject constructor(
     val appsApi: AppsApi
 ) : AndroidViewModel() {
 

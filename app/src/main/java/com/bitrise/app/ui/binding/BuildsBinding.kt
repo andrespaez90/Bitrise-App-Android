@@ -1,6 +1,7 @@
 package com.bitrise.app.ui.binding
 
 import android.text.SpannableStringBuilder
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -27,20 +28,25 @@ object BuildsBinding {
                     }
                 )
             )
+        }
+    }
 
-            val color = when {
-                buildsModel.status == 0 && buildsModel.isOnHold -> R.color.blue_on_hold
-                buildsModel.status == 0 -> R.color.colorAccent
-                buildsModel.status == 1 -> R.color.green_success
-                buildsModel.isFailed -> R.color.red_abort
-                else -> R.color.yellow_aborted
-            }
-            imageView.setBackgroundColor(
-                ContextCompat.getColor(
-                    imageView.context,
-                    color
-                )
-            )
+    @JvmStatic
+    @BindingAdapter("build_state_color")
+    fun setBackgroundVyBuildState(layout: ViewGroup, buildsModel: BuildsModel?) {
+        buildsModel?.let {
+            val color = getColorByStatus(buildsModel)
+            layout.setBackgroundColor(ContextCompat.getColor(layout.context, color))
+        }
+    }
+
+    private fun getColorByStatus(buildsModel: BuildsModel): Int {
+        return when {
+            buildsModel.status == 0 && buildsModel.isOnHold -> R.color.blue_on_hold
+            buildsModel.status == 0 -> R.color.colorAccent
+            buildsModel.status == 1 -> R.color.green_success
+            buildsModel.isFailed -> R.color.red_abort
+            else -> R.color.yellow_aborted
         }
     }
 

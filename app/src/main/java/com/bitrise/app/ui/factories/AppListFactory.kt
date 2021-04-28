@@ -8,6 +8,8 @@ const val ITEM_APP_SELECTOR = 1001
 const val ITEM_BUILD_SELECTOR = 1002
 const val ITEM_USER_ACTIVITY = 1003
 const val ITEM_ORGANIZATION = 1004
+const val ITEM_LINE_CHART = 1005
+const val ITEM_STATUS_PIE_BAR_CHART = 1006
 
 open class AppListFactory(
     private var listener: ((view: Any) -> Unit)? = null
@@ -23,6 +25,8 @@ open class AppListFactory(
             }
             ITEM_USER_ACTIVITY -> UserActivityDescriptionViewItem(parent.context)
             ITEM_ORGANIZATION -> OrganizationViewItem(parent.context)
+            ITEM_LINE_CHART -> LineChartViewItem(parent.context)
+            ITEM_STATUS_PIE_BAR_CHART -> PieChartViewItem(parent.context)
             else -> SimpleVectorCompatTextView(parent.context).apply {
                 setOnClickListener { listener?.invoke(it) }
             }

@@ -8,8 +8,11 @@ import com.bitrise.app.network.api.AppsApi
 import com.bitrise.app.network.models.AppModel
 import com.bitrise.app.viewModels.AndroidViewModel
 import com.bitrise.app.viewModels.models.FinishActivityModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class StartBuildsViewModel @ViewModelInject constructor(
+@HiltViewModel
+class StartBuildsViewModel @Inject constructor(
     private val appsApi: AppsApi
 ) : AndroidViewModel() {
 

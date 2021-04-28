@@ -1,7 +1,6 @@
 package com.bitrise.app.viewModels.home
 
 import android.content.Intent
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.bitrise.app.data.AuthorizationPreference
@@ -14,8 +13,11 @@ import com.bitrise.app.network.models.UserActivity
 import com.bitrise.app.ui.activities.MainActivity
 import com.bitrise.app.viewModels.AndroidViewModel
 import com.bitrise.app.viewModels.models.StartActivityModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class ProfileViewModel @ViewModelInject constructor(
+@HiltViewModel
+class ProfileViewModel @Inject constructor(
     private val prefsManager: PrefsManager,
     private val profileApi: UserApi,
     private val organizationApi: OrganizationApi

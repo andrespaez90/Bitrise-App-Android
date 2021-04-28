@@ -28,34 +28,20 @@
             android:layout_marginRight="@dimen/spacing_standard"
             android:layout_marginBottom="@dimen/spacing_small"
             android:background="@android:color/white"
+            app:layout_constraintTop_toTopOf="parent"
             app:cardCornerRadius="@dimen/radius_medium">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/imageView_build_state"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="@dimen/spacing_standard"
-                    android:paddingTop="@dimen/spacing_xlarge"
-                    android:paddingRight="@dimen/spacing_standard"
-                    android:paddingBottom="@dimen/spacing_xlarge"
-                    app:build_state_icon="@{viewModel.build}"
-                    app:layout_constraintBottom_toBottomOf="@id/layout_build_description"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    tools:background="@color/green_success"
-                    tools:src="@drawable/ic_check_circle" />
-
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/layout_build_description"
                     android:layout_width="@dimen/spacing_empty"
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/imageView_build_state"
-                    app:layout_constraintTop_toTopOf="@id/imageView_build_state"
-                    tools:text="Text">
+                    app:layout_constraintStart_toEndOf="@id/layout_state_container"
+                    app:layout_constraintTop_toTopOf="@id/layout_state_container">
 
                     <TextView
                         android:id="@+id/button_abort"
@@ -104,23 +90,91 @@
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="Success" />
 
+                    <View
+                        android:id="@+id/view_divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/spacing_xxmicro"
+                        android:layout_marginLeft="@dimen/spacing_medium"
+                        android:layout_marginTop="@dimen/spacing_standard"
+                        android:layout_marginRight="@dimen/spacing_medium"
+                        android:layout_marginBottom="@dimen/spacing_standard"
+                        android:background="@color/color_icon_gray"
+                        app:layout_constraintBottom_toTopOf="@id/textView_author"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView_workflow_name"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintVertical_chainStyle="packed" />
+
                     <com.bitrise.app.ui.views.VectorTextView
-                        style="@style/TextNormal.Gray"
+                        android:id="@+id/textView_author"
+                        style="@style/TextSmall.Gray"
                         android:layout_width="@dimen/spacing_empty"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/spacing_standard"
+                        android:layout_marginLeft="@dimen/spacing_standard"
+                        android:layout_marginRight="@dimen/spacing_standard"
+                        android:layout_marginBottom="@dimen/spacing_small"
                         android:drawablePadding="@dimen/spacing_standard"
+                        android:drawableTint="@color/color_icon_gray"
                         android:ellipsize="marquee"
+                        android:gravity="center_vertical"
                         android:singleLine="true"
-                        android:text="@{viewModel.build.commitMessage}"
-                        app:drawableLeft="@drawable/ic_notes"
+
+                        android:text="@{viewModel.build.pullRequestAuthor}"
+                        app:drawableLeft="@drawable/ic_profile_small"
+                        app:isVisible="@{viewModel.build.hasPullRequestAuthor}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/textView_state" />
+                        app:layout_constraintTop_toBottomOf="@id/view_divider"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        tools:targetApi="m" />
+
+                    <com.bitrise.app.ui.views.VectorTextView
+                        style="@style/TextSmall.Gray"
+                        android:layout_width="@dimen/spacing_empty"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/spacing_standard"
+                        android:layout_marginRight="@dimen/spacing_standard"
+                        android:layout_marginBottom="@dimen/spacing_standard"
+                        android:drawablePadding="@dimen/spacing_standard"
+                        android:ellipsize="marquee"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="@{viewModel.build.commitMessage}"
+                        app:drawableLeft="@drawable/ic_notes_small"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView_author" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_state_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/spacing_empty"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    app:build_state_color="@{viewModel.build}"
+                    app:layout_constraintBottom_toBottomOf="@id/layout_build_description"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:background="@color/green_success">
+
+                    <ImageView
+                        android:id="@+id/imageView_build_state"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="@dimen/spacing_standard"
+                        android:paddingTop="@dimen/spacing_xlarge"
+                        android:paddingRight="@dimen/spacing_standard"
+                        android:paddingBottom="@dimen/spacing_xlarge"
+                        app:build_state_icon="@{viewModel.build}"
+                        tools:src="@drawable/ic_check_circle" />
+
+                </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

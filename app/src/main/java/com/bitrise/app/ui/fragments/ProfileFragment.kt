@@ -6,9 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.bitrise.app.R
 import com.bitrise.app.databinding.FragmentProfileBinding
 import com.bitrise.app.network.models.Organization
@@ -17,7 +15,6 @@ import com.bitrise.app.network.models.UserActivity
 import com.bitrise.app.ui.adapters.list.GenericAdapter
 import com.bitrise.app.ui.adapters.list.models.GenericItemAbstract
 import com.bitrise.app.ui.factories.AppListFactory
-import com.bitrise.app.ui.factories.ITEM_APP_SELECTOR
 import com.bitrise.app.ui.factories.ITEM_ORGANIZATION
 import com.bitrise.app.ui.factories.ITEM_USER_ACTIVITY
 import com.bitrise.app.viewModels.home.ProfileViewModel

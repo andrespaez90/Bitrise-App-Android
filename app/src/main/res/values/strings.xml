@@ -25,9 +25,13 @@
     <string name="copy_get_token_message">Don\'t have a token? get it </string>
 
     <string name="hint_start_build_message">Message: e.g Triggered by Bitrise App</string>
+
     <string name="copy_your_recent_activity">Your recent activity</string>
     <string name="copy_organizations">Organizations</string>
     <string name="copy_log_out">Log Out</string>
     <string name="copy_share">Share</string>
+
+    <string name="title_build_time">Build time</string>
+    <string name="title_status_distribution">Status Distribution</string>
 
 </resources>

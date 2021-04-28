@@ -1,6 +1,8 @@
 package com.bitrise.app.network.models
 
 import android.os.Parcelable
+import com.bitrise.app.extensions.biLet
+import com.bitrise.app.extensions.toCalendar
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
@@ -22,7 +24,8 @@ data class BuildsModel(
     @SerializedName("pull_request_id") val pullRequestId: Int?,
     @SerializedName("avatar_url") val avatarUrl: String?,
     @SerializedName("commit_message") private val _commitMessage: String?,
-    @SerializedName("is_on_hold") val isOnHold: Boolean
+    @SerializedName("is_on_hold") val isOnHold: Boolean,
+    @SerializedName("original_build_params") val originalBuildParams: OriginalBuildParams?,
 ) : Parcelable {
 
     val isFailed
@@ -31,9 +34,34 @@ data class BuildsModel(
     val isRunning
         get() = status == 0 && !isOnHold
 
+    val isSuccess
+        get() = status == 1
+
+    val isAborted
+        get() = status == 3
+
     val commitMessage
         get() = _commitMessage.orEmpty()
+
+    val hasPullRequestAuthor: Boolean
+        get() = originalBuildParams?.pullRequestAuthor?.isNotBlank() == true
+
+    val pullRequestAuthor: String?
+        get() = originalBuildParams?.pullRequestAuthor
+
+    val buildTime: Long
+        get() =
+            Pair(startedOnWorkerAt, finishedAt).biLet { start, end ->
+                val seconds: Long =
+                    (end.toCalendar().timeInMillis - start.toCalendar().timeInMillis) / 1000
+                return seconds / 60
+            } ?: 0L
 }
+
+@Parcelize
+data class OriginalBuildParams(
+    @SerializedName("pull_request_author") val pullRequestAuthor: String?
+) : Parcelable
 
 data class AbortBody(
     @SerializedName("abort_reason") val reason: String = "Abort from app",

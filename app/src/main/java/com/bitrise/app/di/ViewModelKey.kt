@@ -1,4 +1,4 @@
-package com.example.lupita.di.modules
+package com.bitrise.app.di
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

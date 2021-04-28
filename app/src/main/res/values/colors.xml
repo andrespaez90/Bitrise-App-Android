@@ -5,8 +5,11 @@
     <color name="colorAccent">#760FC3</color>
 
     <color name="colorSecondary">#0dd3c5</color>
+    <color name="color_icon_gray">#9aa9b9</color>
+
 
     <color name="font_black">#354360</color>
+
 
     <color name="white_transparent">#AAFFFFFF</color>
 

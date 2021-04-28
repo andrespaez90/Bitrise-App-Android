@@ -28,6 +28,10 @@
         <item name="android:textSize">@dimen/font_h1</item>
     </style>
 
+    <style name="TextNormal.Secondary" parent="TextNormal">
+        <item name="android:textColor">@color/colorSecondary</item>
+    </style>
+
     <style name="TextMicro.Primary" parent="TextMicro">
         <item name="android:textColor">@color/colorPrimary</item>
     </style>

@@ -15,8 +15,11 @@ import com.bitrise.app.ui.factories.SnackBarFactory
 import com.bitrise.app.viewModels.models.FinishActivityModel
 import com.bitrise.app.viewModels.models.StartActivityModel
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class MainActivityViewModel @ViewModelInject constructor(
+@HiltViewModel
+class MainActivityViewModel @Inject constructor(
     private val userApi: UserApi,
     private val prefsManager: PrefsManager
 ) : AndroidViewModel() {

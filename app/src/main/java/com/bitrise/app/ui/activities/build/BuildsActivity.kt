@@ -1,7 +1,9 @@
 package com.bitrise.app.ui.activities.build
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bitrise.app.R
@@ -13,7 +15,10 @@ import com.bitrise.app.ui.adapters.list.GenericAdapter
 import com.bitrise.app.ui.adapters.list.models.GenericItemAbstract
 import com.bitrise.app.ui.factories.AppListFactory
 import com.bitrise.app.ui.factories.ITEM_BUILD_SELECTOR
+import com.bitrise.app.ui.factories.ITEM_LINE_CHART
+import com.bitrise.app.ui.factories.ITEM_STATUS_PIE_BAR_CHART
 import com.bitrise.app.ui.items.BuildEvents
+import com.bitrise.app.viewModels.builds.BuildInfo
 import com.bitrise.app.viewModels.builds.BuildsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -57,16 +62,53 @@ class BuildsActivity : BaseActivity() {
         viewModel.onBuildsChange.observe(this, ::updateView)
     }
 
-    private fun updateView(builds: List<BuildsModel>) {
+    private fun updateView(builds: Pair<BuildInfo, List<BuildsModel>>) {
+        if (builds.first == BuildInfo.LIST) updateBuilds(builds.second)
+        else updateMetrics(builds.second)
+    }
+
+    private fun updateBuilds(builds: List<BuildsModel>) {
+        activeView(binding.textViewList)
+        deactivateView(binding.textViewMetrics)
         (binding.recyclerViewList.adapter as GenericAdapter).setItems(
             builds.sortedByDescending { it.triggeredAt }
                 .map { GenericItemAbstract(it, ITEM_BUILD_SELECTOR) }
         )
     }
 
+    private fun updateMetrics(builds: List<BuildsModel>) {
+        deactivateView(binding.textViewList)
+        activeView(binding.textViewMetrics)
+        (binding.recyclerViewList.adapter as GenericAdapter).setItems(
+            builds
+                .groupBy { it.triggeredWorkflow }
+                .filter { it.value.filter { build -> build.isSuccess }.size >= 2 }
+                .map { GenericItemAbstract(it, ITEM_LINE_CHART) }
+        )
+
+        (binding.recyclerViewList.adapter as GenericAdapter).addItem(
+            GenericItemAbstract(builds, ITEM_STATUS_PIE_BAR_CHART)
+        )
+    }
+
+    private fun activeView(view: TextView) {
+        view.setTextColor(ContextCompat.getColor(this, R.color.colorSecondary))
+        view.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white))
+        view.elevation = 2f
+    }
+
+    private fun deactivateView(view: TextView) {
+        view.setTextColor(ContextCompat.getColor(this, R.color.font_black))
+        view.setBackgroundColor(ContextCompat.getColor(this, R.color.background))
+        view.elevation = 0f
+    }
+
+
     private fun initListeners() {
         binding.layoutRefresh.setOnRefreshListener { viewModel.updateBuilds() }
         binding.buttonStartBuild.setOnClickListener { viewModel.startBuildView() }
+        binding.textViewMetrics.setOnClickListener { viewModel.onMetricsClick() }
+        binding.textViewList.setOnClickListener { viewModel.onListClick() }
     }
 
     /**
