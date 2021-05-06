@@ -35,9 +35,9 @@
             android:layout_width="@dimen/spacing_empty"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_large"
-            android:layout_marginLeft="@dimen/spacing_large"
             android:maxLines="3"
             app:activity_description="@{model}"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toRightOf="@id/imageView_icon"
             app:layout_constraintRight_toRightOf="parent" />
 

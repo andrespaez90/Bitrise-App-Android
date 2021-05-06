@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">Bitrise App</string>
+    <string name="copy_apps" translatable="false">APPS</string>
+
     <string name="copy_log_in">Log In</string>
     <string name="copy_input_access_token">"Input your personal access token"</string>
     <string name="error_access_token_validation">Please check your access token on Bitrise.io</string>
@@ -33,5 +35,9 @@
 
     <string name="title_build_time">Build time</string>
     <string name="title_status_distribution">Status Distribution</string>
+    <string name="copy_metrics">Metrics</string>
+    <string name="copy_list">List</string>
+    <string name="cpy_add_new_app">Add New App</string>
+    <string name="copy_build_configuration">Build Configuration</string>
 
 </resources>

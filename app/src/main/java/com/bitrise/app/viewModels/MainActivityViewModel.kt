@@ -2,7 +2,6 @@ package com.bitrise.app.viewModels
 
 import android.app.Activity
 import android.os.Bundle
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import com.bitrise.app.R
 import com.bitrise.app.data.AuthorizationPreference

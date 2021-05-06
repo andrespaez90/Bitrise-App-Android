@@ -25,6 +25,7 @@
             android:layout_width="@dimen/size_profile_image"
             android:layout_height="@dimen/size_profile_image"
             android:src="@mipmap/ic_default_avatar"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent" />
 
         <TextView
