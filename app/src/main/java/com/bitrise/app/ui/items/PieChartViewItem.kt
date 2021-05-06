@@ -15,7 +15,6 @@ import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 
-
 class PieChartViewItem(context: Context) : GenericItemView<List<BuildsModel>> {
 
     override lateinit var data: List<BuildsModel>
@@ -57,7 +56,7 @@ class PieChartViewItem(context: Context) : GenericItemView<List<BuildsModel>> {
 
     override fun bind(data: List<BuildsModel>) {
         this.data = data
-        binding.textViewTitle.text = context.getString(R.string.title_status_distribution)
+        binding.textViewTitle.text = binding.root.context.getString(R.string.title_status_distribution)
         updateChart()
     }
 
