@@ -5,8 +5,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:background="@color/background"
         android:layout_height="match_parent"
+        android:background="@color/background"
         tools:context=".ui.fragments.DashboardFragment">
 
         <com.bitrise.app.ui.views.VectorTextView
@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_xlarge"
             android:drawablePadding="@dimen/spacing_standard"
-            android:text="Add New App"
+            android:text="@string/cpy_add_new_app"
             app:drawableLeft="@drawable/ic_add_circle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -27,10 +27,9 @@
             android:layout_width="@dimen/spacing_empty"
             android:layout_height="@dimen/spacing_empty"
             android:layout_marginStart="@dimen/spacing_xlarge"
-            android:layout_marginLeft="@dimen/spacing_xlarge"
             android:drawablePadding="@dimen/spacing_standard"
             android:gravity="center_vertical"
-            android:text="APPS"
+            android:text="@string/copy_apps"
             app:drawableLeft="@drawable/ic_lists_apps"
             app:layout_constraintBottom_toBottomOf="@id/button_add_app"
             app:layout_constraintEnd_toStartOf="@id/button_add_app"
@@ -43,10 +42,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_xlarge"
             android:layout_marginBottom="@dimen/spacing_xlarge"
-            android:padding="@dimen/spacing_standard"
             android:background="@drawable/selector_border_edit_text"
             android:drawableEnd="@drawable/ic_search"
-            android:drawableRight="@drawable/ic_search"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:padding="@dimen/spacing_standard"
+            app:drawableRight="@drawable/ic_search"
             app:layout_constraintEnd_toEndOf="@id/button_add_app"
             app:layout_constraintStart_toStartOf="@id/button_apps_title"
             app:layout_constraintTop_toBottomOf="@id/button_add_app" />

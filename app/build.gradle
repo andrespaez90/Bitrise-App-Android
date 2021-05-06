@@ -12,11 +12,17 @@ android {
         applicationId "com.bitrise.app"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 9
-        versionName "1.3.0"
+        versionCode 10
+        versionName "1.3.1"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    lintOptions {
+        lintConfig rootProject.file("lint_rules.xml")
+        abortOnError true
+        warningsAsErrors true
     }
 
     buildTypes {

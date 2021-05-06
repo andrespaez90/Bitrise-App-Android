@@ -1,7 +1,6 @@
 package com.bitrise.app.viewModels.builds
 
 import android.app.Activity
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.bitrise.app.network.api.AppsApi

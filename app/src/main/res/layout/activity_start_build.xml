@@ -18,10 +18,11 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:padding="@dimen/spacing_xlarge"
             android:onClick="@{v -> viewModel.onPressBack()}"
-            app:srcCompat="@drawable/ic_back"/>
+            android:padding="@dimen/spacing_xlarge"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
 
         <TextView
             android:id="@+id/textView_title"
@@ -30,7 +31,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="@dimen/spacing_xlarge"
-            android:text="Build Configuration"
+            android:text="@string/copy_build_configuration"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

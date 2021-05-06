@@ -37,6 +37,7 @@
                 android:padding="@dimen/spacing_xlarge"
                 app:app_icon_by_disable_state="@{model.isDisabled()}"
                 app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:src="@drawable/ic_check_circle" />
 
             <ImageView
@@ -44,7 +45,6 @@
                 android:layout_width="50dp"
                 android:layout_height="@dimen/spacing_empty"
                 android:layout_marginStart="@dimen/spacing_xlarge"
-                android:layout_marginLeft="@dimen/spacing_xlarge"
                 app:layout_constraintBottom_toBottomOf="@id/imageView_disable"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="@id/imageView_disable"
@@ -56,7 +56,6 @@
                 android:layout_width="@dimen/spacing_empty"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_xlarge"
-                android:layout_marginLeft="@dimen/spacing_xlarge"
                 app:app_description="@{model}"
                 app:layout_constraintBottom_toBottomOf="@id/imageView_disable"
                 app:layout_constraintLeft_toRightOf="@id/imageView_logo"

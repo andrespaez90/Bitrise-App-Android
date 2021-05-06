@@ -15,7 +15,7 @@
     <string name="copy_workflow">Workflow</string>
     <string name="copy_share">Compartir</string>
 
-    <string name="copy_here">Aqui</string>
+    <string name="copy_here">Aquí</string>
     <string name="copy_state_running">En Porgreso</string>
     <string name="copy_state_success">Exitoso</string>
     <string name="copy_state_aborted">Abortado</string>
@@ -33,5 +33,11 @@
 
     <string name="title_build_time">Build time</string>
     <string name="title_status_distribution">Distribution del estado</string>
+
+    <string name="copy_metrics">Metricas</string>
+    <string name="copy_list">Lista</string>
+    <string name="cpy_add_new_app">Nueva App</string>
+
+    <string name="copy_build_configuration">Configuración del Build</string>
 
 </resources>
