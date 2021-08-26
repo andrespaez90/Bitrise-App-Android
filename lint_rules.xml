@@ -8,4 +8,5 @@
     <issue id="ContentDescription" severity="ignore" />
     <issue id="LabelFor" severity="ignore"/>
     <issue id="IconLauncherShape" severity="ignore"/>
+    <issue id="ObsoleteSdkInt" severity="ignore"/>
 </lint>
