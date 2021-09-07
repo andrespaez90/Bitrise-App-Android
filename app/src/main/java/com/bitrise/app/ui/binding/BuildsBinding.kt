@@ -22,8 +22,10 @@ object BuildsBinding {
             imageView.setImageDrawable(
                 imageView.context.getDrawableCompat(
                     when {
-                        buildsModel.pullRequestId == 0 -> R.drawable.ic_done
                         buildsModel.isRunning -> R.drawable.ic_running
+                        buildsModel.isFailed -> R.drawable.ic_close
+                        buildsModel.isSuccess -> R.drawable.ic_done
+                        buildsModel.pullRequestId == 0 -> R.drawable.ic_done
                         else -> R.drawable.ic_merge
                     }
                 )

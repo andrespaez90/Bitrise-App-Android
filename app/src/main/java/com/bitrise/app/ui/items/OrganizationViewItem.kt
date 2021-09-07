@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import com.bitrise.app.databinding.ItemOrganizationsBinding
-import com.bitrise.app.network.models.AppModel
 import com.bitrise.app.network.models.Organization
 import com.bitrise.app.ui.adapters.list.models.GenericItemView
 
