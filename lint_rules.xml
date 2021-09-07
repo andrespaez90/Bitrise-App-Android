@@ -9,4 +9,7 @@
     <issue id="LabelFor" severity="ignore"/>
     <issue id="IconLauncherShape" severity="ignore"/>
     <issue id="ObsoleteSdkInt" severity="ignore"/>
+    <issue id="QueryPermissionsNeeded" severity="ignore"/>
+    <issue id="LockedOrientationActivity" severity="ignore"/>
+    <issue id="NewApi" severity="ignore" />
 </lint>

@@ -1,1 +1,69 @@
-{}
+{
+  "project_info": {
+    "project_number": "869908058508",
+    "firebase_url": "https://bitrise-app-8045b-default-rtdb.firebaseio.com",
+    "project_id": "bitrise-app-8045b",
+    "storage_bucket": "bitrise-app-8045b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869908058508:android:20f9853cecf1ab0a8a06a9",
+        "android_client_info": {
+          "package_name": "com.bitrise.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "869908058508-1jme8e2q1bsfcqvodvhutt9o9vdbghvp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXaHbhW4M0KAxYTS5m5FM6lkd-6sDqxG8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "869908058508-1jme8e2q1bsfcqvodvhutt9o9vdbghvp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869908058508:android:9498c30d0830f89c8a06a9",
+        "android_client_info": {
+          "package_name": "com.bitrise.app.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "869908058508-1jme8e2q1bsfcqvodvhutt9o9vdbghvp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXaHbhW4M0KAxYTS5m5FM6lkd-6sDqxG8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "869908058508-1jme8e2q1bsfcqvodvhutt9o9vdbghvp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
