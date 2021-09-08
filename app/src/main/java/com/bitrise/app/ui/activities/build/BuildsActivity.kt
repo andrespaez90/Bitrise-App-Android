@@ -70,21 +70,19 @@ class BuildsActivity : BaseActivity() {
     private fun updateBuilds(builds: List<BuildsModel>) {
         activeView(binding.textViewList)
         deactivateView(binding.textViewMetrics)
-        (binding.recyclerViewList.adapter as GenericAdapter).setItems(
+        (binding.recyclerViewList.adapter as GenericAdapter).items =
             builds.sortedByDescending { it.triggeredAt }
                 .map { GenericItemAbstract(it, ITEM_BUILD_SELECTOR) }
-        )
     }
 
     private fun updateMetrics(builds: List<BuildsModel>) {
         deactivateView(binding.textViewList)
         activeView(binding.textViewMetrics)
-        (binding.recyclerViewList.adapter as GenericAdapter).setItems(
+        (binding.recyclerViewList.adapter as GenericAdapter).items =
             builds
                 .groupBy { it.triggeredWorkflow }
                 .filter { it.value.filter { build -> build.isSuccess }.size >= 2 }
                 .map { GenericItemAbstract(it, ITEM_LINE_CHART) }
-        )
 
         (binding.recyclerViewList.adapter as GenericAdapter).addItem(
             GenericItemAbstract(builds, ITEM_STATUS_PIE_BAR_CHART)
