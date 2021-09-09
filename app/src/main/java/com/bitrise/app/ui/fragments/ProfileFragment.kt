@@ -63,15 +63,13 @@ class ProfileFragment : BaseFragment() {
 
     private fun updateOrganizations(organizations: List<Organization>) {
         binding.containerOrganizations.isVisible = organizations.isNotEmpty()
-        (binding.recyclerViewOrganizations.adapter as GenericAdapter).setItems(
+        (binding.recyclerViewOrganizations.adapter as GenericAdapter).items =
             organizations.map { GenericItemAbstract(it, ITEM_ORGANIZATION) }
-        )
     }
 
     private fun updateRecentActivity(userActivity: List<UserActivity>) {
         binding.containerActivity.isVisible = userActivity.isNotEmpty()
-        (binding.recyclerViewUserActivity.adapter as GenericAdapter).setItems(
+        (binding.recyclerViewUserActivity.adapter as GenericAdapter).items =
             userActivity.map { GenericItemAbstract(it, ITEM_USER_ACTIVITY) }
-        )
     }
 }
