@@ -15,8 +15,8 @@ android {
         applicationId "com.bitrise.app"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 23
-        versionName "1.3.3"
+        versionCode 24
+        versionName "1.3.4"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
