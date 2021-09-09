@@ -61,7 +61,7 @@ class DashboardViewModel @Inject constructor(
 
     private fun search() {
         if (lastQuery.isNotEmpty()) {
-            apps.postValue(allApps.filter { it.title.contains(lastQuery) })
+            apps.postValue(allApps.filter { it.title.contains(lastQuery, true) || it.owner.name.contains(lastQuery, true) })
         }
     }
 

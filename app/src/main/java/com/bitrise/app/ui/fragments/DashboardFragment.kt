@@ -85,10 +85,9 @@ class DashboardFragment : BaseFragment() {
     }
 
     private fun updateApps(newApps: List<AppModel>) {
-        (binding.recyclerViewList.adapter as GenericAdapter).setItems(
+        (binding.recyclerViewList.adapter as GenericAdapter).items =
             newApps.sortedBy { it.isDisabled }
                 .map { GenericItemAbstract(it, ITEM_APP_SELECTOR) }
-        )
     }
 
 }
