@@ -40,4 +40,7 @@
     <string name="cpy_add_new_app">Add New App</string>
     <string name="copy_build_configuration">Build Configuration</string>
 
+    <!--Formats-->
+    <string name="format_credits_value" translatable="false">%s cr</string>
+
 </resources>
