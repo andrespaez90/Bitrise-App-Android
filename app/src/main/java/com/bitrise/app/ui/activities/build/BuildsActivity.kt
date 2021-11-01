@@ -13,10 +13,8 @@ import com.bitrise.app.network.models.BuildsModel
 import com.bitrise.app.ui.activities.BaseActivity
 import com.bitrise.app.ui.adapters.list.GenericAdapter
 import com.bitrise.app.ui.adapters.list.models.GenericItemAbstract
-import com.bitrise.app.ui.factories.AppListFactory
-import com.bitrise.app.ui.factories.ITEM_BUILD_SELECTOR
-import com.bitrise.app.ui.factories.ITEM_LINE_CHART
-import com.bitrise.app.ui.factories.ITEM_STATUS_PIE_BAR_CHART
+import com.bitrise.app.ui.factories.*
+import com.bitrise.app.ui.factories.ITEM_CHAR_CREDITS_BY_STATUS
 import com.bitrise.app.ui.items.BuildEvents
 import com.bitrise.app.viewModels.builds.BuildInfo
 import com.bitrise.app.viewModels.builds.BuildsViewModel
@@ -78,15 +76,28 @@ class BuildsActivity : BaseActivity() {
     private fun updateMetrics(builds: List<BuildsModel>) {
         deactivateView(binding.textViewList)
         activeView(binding.textViewMetrics)
-        (binding.recyclerViewList.adapter as GenericAdapter).items =
-            builds
-                .groupBy { it.triggeredWorkflow }
-                .filter { it.value.filter { build -> build.isSuccess }.size >= 2 }
-                .map { GenericItemAbstract(it, ITEM_LINE_CHART) }
+        with((binding.recyclerViewList.adapter as GenericAdapter)) {
 
-        (binding.recyclerViewList.adapter as GenericAdapter).addItem(
-            GenericItemAbstract(builds, ITEM_STATUS_PIE_BAR_CHART)
-        )
+            clearAll()
+
+            if (builds.any { it.hasCredits }) {
+                addItem(
+                    GenericItemAbstract(
+                        builds.filter { it.hasCredits }.groupBy { it.statusText },
+                        ITEM_CHAR_CREDITS_BY_STATUS
+                    )
+                )
+            }
+
+            addItems(
+                builds
+                    .groupBy { it.triggeredWorkflow }
+                    .filter { it.value.filter { build -> build.isSuccess }.size >= 2 }
+                    .map { GenericItemAbstract(it, ITEM_LINE_CHART) }
+            )
+
+            addItem(GenericItemAbstract(builds, ITEM_STATUS_PIE_BAR_CHART))
+        }
     }
 
     private fun activeView(view: TextView) {

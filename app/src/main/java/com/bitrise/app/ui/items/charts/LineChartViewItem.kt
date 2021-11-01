@@ -1,4 +1,4 @@
-package com.bitrise.app.ui.items
+package com.bitrise.app.ui.items.charts
 
 import android.content.Context
 import android.graphics.Color
