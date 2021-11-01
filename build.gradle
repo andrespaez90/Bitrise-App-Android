@@ -30,11 +30,11 @@ allprojects {
 ext {
     daggerVersion = '2.24'
     okhttpVersion = '3.12.4'
-    glideVersion = '4.9.0'
+    glideVersion = '4.11.0'
     lifecycleVersion = '2.2.0'
     rxBindingVersion = '2.2.0'
     materialVersion = '1.4.0-alpha02'
-    constraintLayoutVersion = "2.0.1"
+    constraintLayoutVersion = "2.1.1"
     recyclerviewVersion = "1.1.0-beta05"
     retrofitVersion = '2.6.1'
 }
