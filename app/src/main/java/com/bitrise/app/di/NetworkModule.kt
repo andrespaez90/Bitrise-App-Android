@@ -62,13 +62,13 @@ class NetworkModule {
 
             val newBuilder = chain.request().newBuilder()
 
-            newBuilder.method(chain.request().method(), chain.request().body())
+            newBuilder.method(chain.request().method, chain.request().body)
 
-            val requestHeaders = chain.request().headers()
+            val requestHeaders = chain.request().headers
 
             requestHeaders.let {
                 for (key in it.names()) {
-                    newBuilder.header(key, it[key])
+                    it[key]?.let { it1 -> newBuilder.header(key, it1) }
                 }
             }
 
