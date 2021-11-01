@@ -13,7 +13,7 @@
     </style>
 
     <style name="TextSmall">
-        <item name="android:textSize">@dimen/font_caption1</item>
+        <item name="android:textSize">@dimen/font_caption2</item>
     </style>
 
     <style name="TextNormal">

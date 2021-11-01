@@ -3,6 +3,9 @@ package com.bitrise.app.ui.factories
 import android.view.ViewGroup
 import com.bitrise.app.ui.adapters.list.models.GenericItemView
 import com.bitrise.app.ui.items.*
+import com.bitrise.app.ui.items.charts.CreditsChartByStateViewItem
+import com.bitrise.app.ui.items.charts.LineChartViewItem
+import com.bitrise.app.ui.items.charts.PieChartViewItem
 
 const val ITEM_APP_SELECTOR = 1001
 const val ITEM_BUILD_SELECTOR = 1002
@@ -10,6 +13,7 @@ const val ITEM_USER_ACTIVITY = 1003
 const val ITEM_ORGANIZATION = 1004
 const val ITEM_LINE_CHART = 1005
 const val ITEM_STATUS_PIE_BAR_CHART = 1006
+const val ITEM_CHAR_CREDITS_BY_STATUS = 1007
 
 open class AppListFactory(
     private var listener: ((view: Any) -> Unit)? = null
@@ -27,6 +31,7 @@ open class AppListFactory(
             ITEM_ORGANIZATION -> OrganizationViewItem(parent.context)
             ITEM_LINE_CHART -> LineChartViewItem(parent.context)
             ITEM_STATUS_PIE_BAR_CHART -> PieChartViewItem(parent.context)
+            ITEM_CHAR_CREDITS_BY_STATUS -> CreditsChartByStateViewItem(parent.context)
             else -> SimpleVectorCompatTextView(parent.context).apply {
                 setOnClickListener { listener?.invoke(it) }
             }

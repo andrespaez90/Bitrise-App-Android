@@ -41,6 +41,4 @@ class BuildDetailActivity : BaseActivity() {
         binding.viewModel = viewModel
         binding.textViewLog.movementMethod= ScrollingMovementMethod()
     }
-
-
 }

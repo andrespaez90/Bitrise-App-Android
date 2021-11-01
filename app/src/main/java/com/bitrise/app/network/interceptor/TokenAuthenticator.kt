@@ -19,7 +19,7 @@ class TokenAuthenticator(
     @Throws(IOException::class)
     override fun authenticate(route: Route?, response: Response): Request? {
 
-        if (response.code() == 401) {
+        if (response.code == 401) {
 
             prefsManager.set(AuthorizationPreference(), "")
 

@@ -26,6 +26,7 @@ data class BuildsModel(
     @SerializedName("commit_message") private val _commitMessage: String?,
     @SerializedName("is_on_hold") val isOnHold: Boolean,
     @SerializedName("original_build_params") val originalBuildParams: OriginalBuildParams?,
+    @SerializedName("credit_cost") val creditCost: String?,
 ) : Parcelable {
 
     val isFailed
@@ -45,6 +46,9 @@ data class BuildsModel(
 
     val hasPullRequestAuthor: Boolean
         get() = originalBuildParams?.pullRequestAuthor?.isNotBlank() == true
+
+    val hasCredits: Boolean
+        get() = creditCost != null
 
     val pullRequestAuthor: String?
         get() = originalBuildParams?.pullRequestAuthor

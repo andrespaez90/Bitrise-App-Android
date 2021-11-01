@@ -58,6 +58,22 @@
                         tools:visibility="visible" />
 
                     <TextView
+                        android:id="@+id/textView_credits"
+                        style="@style/TextNormal.Gray"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/spacing_empty"
+                        android:layout_marginTop="@dimen/spacing_xsmall"
+                        android:layout_marginEnd="@dimen/spacing_standard"
+                        android:drawablePadding="@dimen/spacing_small"
+                        android:gravity="center"
+                        android:padding="@dimen/spacing_small"
+                        android:text="@{@string/format_credits_value(viewModel.build.creditCost)}"
+                        app:drawableStartCompat="@drawable/ic_build_credits_small"
+                        app:isVisible="@{viewModel.build.hasCredits}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
                         android:id="@+id/textView_state"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
